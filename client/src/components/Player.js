@@ -5,12 +5,13 @@ const Player = ({ accessToken, trackUri }) => {
     const [play, setPlay] = useState(false)
 
     useEffect(() => setPlay(true), [trackUri])
-
-    if (!accessToken.accessToken) return null
+    //esto eera !accessToken.accessToken, guerda que a veces se pone con objeto y a veces no
+    console.log("accestotek", accessToken)
+    if (!accessToken) return null
 
     return (
         <SpotifyPlayer
-            token={"BQB56PDTdbYU2UIZDbcocLFWBPcD-GhUnTXSROnvAB4k4Sm-oDOqlx6YsxidAkt5RDuNHWHka0EdwyZTO4EHoItXHTUoPpe0b_wClBuLkqcb4HBA8P8UGONipZoUM4zGjoqlY-rQLfkgjr4LMm0rxFvWvooXxWifPEICHeOKkUJ7eg7lCoW0hFwQ2iyA_UH0IdjYbpaAdJ-RoqRohZxT"}
+            token={"BQDX-5NoOMe0o8GfCxdyI8yKZZfGv7ZcZdMHQ9SpiPzGfZhWFoGGrhhYZ0U8K_af0xMD7tjPgN6yYsYMSqkk9VjPfdA3as2r-patDUcbONHeZ1nJGHx6U1ribXCB7wmV8jXK8ZYfwUP9n5kBNFpLanX113dToMz4V8Hd8in5owRDRFifgSMgTgvaFxBrbr_oyFS_atNssSl7pk_h76nu"}
             showSaveIcon
             callback={state => {
             if (!state.isPlaying) setPlay(false)

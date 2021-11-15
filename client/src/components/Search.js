@@ -4,12 +4,11 @@ import useDashboardHelper from "../hooks/useDashboardHelper"
 import Player from "./Player"
 
 
-const Dashboard = ({code}) => {
+const Search = ({code}) => {
     const [search, setSearch] = useState("queen")
     const [searchResults, setSearchResults] = useState([])
-    const [playingTrack, setPlayingTrack] = useState()
     const accessToken = useAuthenticationHelper(code)
-    const { } = useDashboardHelper(search, setSearch, setSearchResults, setPlayingTrack, accessToken)
+    const { } = useDashboardHelper(search, setSearch, setSearchResults, accessToken)
 
     return (
         <div>
@@ -18,10 +17,10 @@ const Dashboard = ({code}) => {
                 <button >buscar</button>
             </form>
             <div>
-                <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+                {/* <Player accessToken={accessToken} trackUri={playingTrack?.uri} /> */}
             </div>
         </div>
     )
 }
 
-export default Dashboard
+export default Search
