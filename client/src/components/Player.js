@@ -11,13 +11,13 @@ const Player = ({ accessToken, trackUri }) => {
 
     return (
         <SpotifyPlayer
-            token={"BQARlSxPhIiUlr_lhDj0mg8NtdUt7sehOa7oudS1oXcLmyMoxGHuxglozMTifewZZrbKXkRe6KlQmOkvq5kkAXQ2k1Ea1_L2OS-U8lCXtERtPQVEzXW565_o5AhUZH2TwyJDsAHO-qS8KWSn-r0712YZLh8WTwPLe7ixrAZtvsXIcTgtbSkLaGxDvr_T2kBetvwbWzWzz_BEeBHkHS2x"}
+            token={"BQA2-cvaBQsYqzUZnm0XDTwEk7eF8yNdOL2x1oqFZhxhKadOcj-eKQzIDp4K8kNjMDPaLrLNQOfqdYQ7jo7MaIvJD_V0ClEXQ6Wi9fwqYDMACmxNPAoNEJpl2rIndkQ5FkSMmfAGHy4eHSOlXhQCyEwP9EZJRiamfAleGErVxvBMrkcV2vqdL0LaiN7w3-Cf7c9hy6WArIGFjAN4pp6Q"}
             showSaveIcon
             callback={state => {
             if (!state.isPlaying) setPlay(false)
             }}
             play={play}
-            uris={["spotify:track:5vdp5UmvTsnMEMESIF2Ym7"]}
+            uris={["spotify:track:6pSspi3xtrbXr8LqvJ9BJN"]}
             styles={{
                 activeColor: '#fff',
                 bgColor: '#181818',

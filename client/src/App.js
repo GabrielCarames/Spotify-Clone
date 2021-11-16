@@ -3,12 +3,15 @@ import Search from "./components/Search";
 import Player from "./components/Player";
 import Login from "./components/Login";
 import useAuthenticationHelper from "./hooks/useAuthenticationHelper";
+import useDashboardHelper from "./hooks/useDashboardHelper";
+import YourLibrary from "./components/YourLibrary";
 
 function App() {
     const [ playingTrack, setPlayingTrack ] = useState()
 
     const code = new URLSearchParams(window.location.search).get("code")
     const { accessToken } = useAuthenticationHelper(code)
+    useDashboardHelper(accessToken)
 
     return code ? 
         <div className="app-container">
@@ -29,6 +32,10 @@ function App() {
                             <i className="fas fa-search"></i>
                             <h4 className="sidebar__item-title">Search</h4>
                         </li>
+                        <li className="sidebar__item">
+                            <i className="fas fa-book"></i>
+                            <h4 className="sidebar__item-title">Your Library</h4>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -36,6 +43,7 @@ function App() {
                 {accessToken && <Player accessToken={accessToken} trackUri={playingTrack?.uri} />}
             </div>
             {/* <Search code={code} /> */}
+            <YourLibrary accessToken={accessToken} />
         </div> 
     : <Login />
 }

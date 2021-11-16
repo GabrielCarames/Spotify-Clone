@@ -5,7 +5,7 @@ import Player from "./Player"
 
 
 const Search = ({code}) => {
-    const [search, setSearch] = useState("queen")
+    const [search, setSearch] = useState("careless whisper")
     const [searchResults, setSearchResults] = useState([])
     const accessToken = useAuthenticationHelper(code)
     const { } = useDashboardHelper(search, setSearch, setSearchResults, accessToken)
