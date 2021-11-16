@@ -11,13 +11,22 @@ const Player = ({ accessToken, trackUri }) => {
 
     return (
         <SpotifyPlayer
-            token={"BQDX-5NoOMe0o8GfCxdyI8yKZZfGv7ZcZdMHQ9SpiPzGfZhWFoGGrhhYZ0U8K_af0xMD7tjPgN6yYsYMSqkk9VjPfdA3as2r-patDUcbONHeZ1nJGHx6U1ribXCB7wmV8jXK8ZYfwUP9n5kBNFpLanX113dToMz4V8Hd8in5owRDRFifgSMgTgvaFxBrbr_oyFS_atNssSl7pk_h76nu"}
+            token={"BQARlSxPhIiUlr_lhDj0mg8NtdUt7sehOa7oudS1oXcLmyMoxGHuxglozMTifewZZrbKXkRe6KlQmOkvq5kkAXQ2k1Ea1_L2OS-U8lCXtERtPQVEzXW565_o5AhUZH2TwyJDsAHO-qS8KWSn-r0712YZLh8WTwPLe7ixrAZtvsXIcTgtbSkLaGxDvr_T2kBetvwbWzWzz_BEeBHkHS2x"}
             showSaveIcon
             callback={state => {
             if (!state.isPlaying) setPlay(false)
             }}
             play={play}
             uris={["spotify:track:5vdp5UmvTsnMEMESIF2Ym7"]}
+            styles={{
+                activeColor: '#fff',
+                bgColor: '#181818',
+                color: '#fff',
+                loaderColor: '#fff',
+                sliderColor: '#1cb954',
+                trackArtistColor: '#ccc',
+                trackNameColor: '#fff',
+              }}
         />
     )
 }

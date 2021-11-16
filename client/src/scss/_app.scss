@@ -1,0 +1,64 @@
+@import url(//db.onlinewebfonts.com/c/a3b9bd61310fe6777980b7b7ce42f937?family=Gotham+C1+Head);
+.app-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(152, 176, 176);
+    background-image: linear-gradient(rgba(0,0,0,.6) 0,#121212 100%), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=");;
+    height: 100vh;
+    color: white;
+    font-family: 'Gotham C1 Head';
+    .sidebar-container {
+        background-color: #000;
+        width: 240px;
+        height: 100vw;
+        .sidebar__navbar {
+            .sidebar__logo {
+                height: 40px;
+                width: 130px;
+                margin-top: 24px;
+                margin-left: 24px;
+                margin-bottom: 28px;
+            }
+            .sidebar__list {
+                list-style: none;
+                padding: 0;
+                .sidebar__item {
+                    display: flex;
+                    align-items: center;
+                    height: 40px;
+                    margin: 0 8px;
+                    padding: 5px;
+                    padding-left: 20px;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                    color: #b3b3b3;
+                    &:nth-child(1) {
+                        background-color: #282828;
+                        color: #fff;
+                    }
+                    &:hover {
+                        color: #fff;
+                    }
+                    .fas {
+                        font-size: 20px;
+                    }
+                    .sidebar__item-title {
+                        margin-left: 20px;
+                        font-size: 14px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+    .player-container {
+        height: 115px;
+        .PlayerRSWP {
+            // background-color: #3c8d3c;
+            height: 90px;
+            ._ContentRSWP {
+                padding: 20px;
+            }
+        }
+    }
+}

@@ -1,1 +1,102 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+@import url(//db.onlinewebfonts.com/c/a3b9bd61310fe6777980b7b7ce42f937?family=Gotham+C1+Head);
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: calc(100vh - calc(100vh - 100%));
+}
+
+html*, html *::before, html *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  height: calc(100vh - calc(100vh - 100%));
+  width: 100%;
+}
+
+.app-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #98b0b0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.6)), to(#121212)), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212 100%), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=");
+  height: 100vh;
+  color: white;
+  font-family: 'Gotham C1 Head';
+}
+
+.app-container .sidebar-container {
+  background-color: #000;
+  width: 240px;
+  height: 100vw;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__logo {
+  height: 40px;
+  width: 130px;
+  margin-top: 24px;
+  margin-left: 24px;
+  margin-bottom: 28px;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list {
+  list-style: none;
+  padding: 0;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list .sidebar__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  margin: 0 8px;
+  padding: 5px;
+  padding-left: 20px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #b3b3b3;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list .sidebar__item:nth-child(1) {
+  background-color: #282828;
+  color: #fff;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list .sidebar__item:hover {
+  color: #fff;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list .sidebar__item .fas {
+  font-size: 20px;
+}
+
+.app-container .sidebar-container .sidebar__navbar .sidebar__list .sidebar__item .sidebar__item-title {
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.app-container .player-container {
+  height: 115px;
+}
+
+.app-container .player-container .PlayerRSWP {
+  height: 90px;
+}
+
+.app-container .player-container .PlayerRSWP ._ContentRSWP {
+  padding: 20px;
+}
+/*# sourceMappingURL=index.css.map */
