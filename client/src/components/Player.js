@@ -11,7 +11,7 @@ const Player = ({ accessToken, trackUri }) => {
 
     return (
         <SpotifyPlayer
-            token={"BQA2-cvaBQsYqzUZnm0XDTwEk7eF8yNdOL2x1oqFZhxhKadOcj-eKQzIDp4K8kNjMDPaLrLNQOfqdYQ7jo7MaIvJD_V0ClEXQ6Wi9fwqYDMACmxNPAoNEJpl2rIndkQ5FkSMmfAGHy4eHSOlXhQCyEwP9EZJRiamfAleGErVxvBMrkcV2vqdL0LaiN7w3-Cf7c9hy6WArIGFjAN4pp6Q"}
+            token={"BQCNQBPBJVNtqjPQtKC80IbhHwn5WcAjFesAF4saFfKEkn9EgmC-oyP-_0Sb5jXg8XQuVtoG8uvy6bALf-U1nCYra6HLIpzQtl__hLDrqCVzmSaPHmKKRJKXS8cawXDdFIPbc92A489-GrKjdPiGzJNOAbEmg8fU8tf9HwRL4tiyOUNO2Piq5x1iudBznwlXo0F2lMoQBd6fHj2aLogl"}
             showSaveIcon
             callback={state => {
             if (!state.isPlaying) setPlay(false)

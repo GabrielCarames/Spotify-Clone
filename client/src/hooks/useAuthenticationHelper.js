@@ -11,9 +11,11 @@ export function useAuthenticationHelper (code) {
             console.log("cosadedasdasdad", code)
             axios.post("http://localhost:3001/login", {code}).then(res => {
               console.log("datos", res)
-              setAccessToken(res.data.accessToken)
-              setRefreshToken(res.data.refreshToken)
-              setExpiresIn(res.data.expiresIn)
+              const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn}
+              setAccessToken(userLogginData.accessToken)
+              setRefreshToken(userLogginData.refreshToken)
+              setExpiresIn(userLogginData.expiresIn)
+              localStorage.setItem('userLogged', JSON.stringify(userLogginData))
               window.history.pushState({}, null, "/")
             }).catch((err) => {
               console.log(err)

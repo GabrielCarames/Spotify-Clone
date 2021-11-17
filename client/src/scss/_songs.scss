@@ -1,0 +1,57 @@
+.songs-container {
+    grid-area: content;
+    .songs-header {
+        height: 340px;
+        background-color: red;
+        // padding: 30px;
+        box-sizing: border-box;
+        .songs-context {
+            display: flex;
+            // margin-top: 85px;
+            padding: 85px 0 0 33px;
+            .songs__image {
+                width: 232px;
+                height: 232px;
+            }
+            .songs-data {
+                display: flex;
+                flex-direction: column-reverse;
+                margin-left: 20px;
+                .songs__context-type {
+                    line-height: 0;
+                    font-size: 12px;
+                }
+                .songs__context-title {
+                    line-height: 0;
+                    font-size: 96px;
+                }
+                .songs__context-data {
+                    line-height: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .songs-body {
+        .songs-player-buttons {
+
+        }
+        .songs-list-container {
+            .songs-list{
+                .list__item {
+                    .list__image {
+
+                    }
+                    .list__song-data {
+                        .list__song-title {
+
+                        }
+                        .list__song-author {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

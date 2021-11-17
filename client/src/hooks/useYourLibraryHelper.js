@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-node"
 
 export function useYourLibraryHelper (accessToken) {
-    const [playlist, setPlaylist] = useState()
+    const [playlists, setPlaylists] = useState()
 
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
@@ -23,13 +23,13 @@ export function useYourLibraryHelper (accessToken) {
                 spotifyApi.getUserPlaylists(authUserName)
         .then(function(data) {
             console.log('Retrieved playlists', data.body);
-            setPlaylist(data.body.items)
+            setPlaylists(data.body.items)
         },function(err) {
             console.log('Something went wrong!', err);
         });
     }, [accessToken])
 
-    return { playlist }
+    return { playlists }
 }
 
 export default useYourLibraryHelper
