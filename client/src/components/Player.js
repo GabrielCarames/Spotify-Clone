@@ -30,7 +30,7 @@ const Player = ({ accessToken, trackUri }) => {
             token={accessToken}
             showSaveIcon
             callback={state => {
-                console.log("SOYESTAS")
+                console.log("SOYESTAS", state)
                 if (state.isPlaying) dispatch({type: '@songState', payload: true})
             if (!state.isPlaying) dispatch({type: '@songState', payload: false})
             }}
