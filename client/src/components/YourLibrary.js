@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import useYourLibraryHelper from "../hooks/useYourLibraryHelper"
+import { Link } from "react-router-dom"
 
 const YourLibrary = ({accessToken}) => {
     const { playlists } = useYourLibraryHelper(accessToken)
@@ -13,7 +14,9 @@ const YourLibrary = ({accessToken}) => {
                     {
                         playlists && playlists.map((playlist, id) => {
                             return (
-                                <li className="list__item" key={id} onClick={() => dispatch({type: '@updateContent', payload: ["songs", playlist.id]})}>
+                                <li className="list__item" key={id} onClick={() => {dispatch({type: '@updateContent', payload: ["songs", playlist.id]})}}>
+                                    <Link to={`/playlist/${playlist.id}`}> 
+                                    
                                     <div className="list__images-container">
                                         {
                                             playlist.images.length >= 1 
@@ -27,6 +30,7 @@ const YourLibrary = ({accessToken}) => {
                                         <p className="list__playlist-name">{playlist.name}</p>
                                         <p className="list__playlist-user">{playlist.owner.display_name}</p>
                                     </div>
+                                    </Link>
                                 </li>
 
                             )

@@ -1,9 +1,20 @@
+@import url(//db.onlinewebfonts.com/c/f3c42d5e4c2d28b84d05c2b2f672b3ca?family=Gotham+ExtraLight);
+@mixin song-button {
+    background-color: #1db954;
+    border: none;
+    border-radius: 3000px;
+    color: white;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+}
+
 .songs-container {
     grid-area: content;
+    overflow-y: scroll;
     .songs-header {
         height: 340px;
         background-color: red;
-        // padding: 30px;
         box-sizing: border-box;
         .songs-context {
             display: flex;
@@ -32,23 +43,134 @@
             }
         }
     }
-    .songs-body {
-        .songs-player-buttons {
-
+    .songs-complementary {
+        position:sticky;
+        z-index: 2;
+        top: 10px;
+        top: -2px;
+        &[stuck] {
+            background-color: #181818;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            box-shadow: 0 -1px 0 0 #181818;
         }
+        .songs-player-buttons {
+            padding: 24px;
+            padding-left: 33px;
+            .songs__play-button {
+                display: inline-block;
+                @include song-button;
+            }
+            .songs__play-button--active {
+                display: none;
+                @include song-button;
+            }
+            .songs__stop-button--active {
+                display: inline-block;
+                @include song-button;
+            }
+            .songs__stop-button {
+                display: none;
+                @include song-button;
+            }
+        }
+        .songs-navbar {
+            display: grid;
+            grid-template-columns: 1% 40% 26.5% 16% 11%;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            color: #b3b3b3;
+            letter-spacing: .05em;
+            font-family: 'Gotham ExtraLight';
+            font-size: 14px;
+            padding-left: 16px;
+            line-height: 0;
+            margin-left: 30px;
+            .navbar__numeral {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .navbar__title {
+    
+            }
+            .navbar__album {
+    
+            }
+            .navbar__date-added {
+    
+            }
+            .fa-clock {
+                
+            }
+        }
+    }
+    .songs-body {
+        margin: 0 32px;
         .songs-list-container {
             .songs-list{
+                display: flex;
+                flex-direction: column;
+                padding-left: 0;
                 .list__item {
-                    .list__image {
-
+                    display: grid;
+                    grid-template-columns: 2% 40% 27% 15% 9%;
+                    gap: 15px;
+                    font-size: 14px;
+                    align-items: center;
+                    height: 58px;
+                    color: rgb(179, 179, 179);
+                    cursor: pointer;
+                    &:hover {
+                        background-color: rgba(255,255,255,.1);
+                        .list__index {
+                            display: none;
+                        }
+                        .list__index--play {
+                            display: inline-block;
+                        }
+                    }
+                    .list__index {
+                        font-size: 16px;
+                        color: #b3b3b3;
+                        margin-left: 15px;
+                    }
+                    .list__index--play {
+                        display: none;
+                        width: 20px;
+                        margin-left: 10px;
+                        color: white;
                     }
                     .list__song-data {
-                        .list__song-title {
-
+                        // margin-left: 15px;
+                        display: flex;
+                        align-items: center;
+                        .list__image {
+                            width: 40px;
+                            height: 40px;
                         }
-                        .list__song-author {
-
+                        .list__description-container {
+                            margin-left: 15px;
+                            .list__song-title {
+                                line-height: 0;
+                                font-size: 16px;
+                                margin-bottom: 10px;
+                                color: white;
+                            }
+                            .list__song-author {
+                                line-height: 0;
+                                font-size: 14px;
+                            }
                         }
+                    }
+                    .list__album {
+                        text-decoration: none;
+                        color: rgb(179, 179, 179);
+                    }
+                    .list__date-added {
+
+                    }
+                    .list__duration {
+
                     }
                 }
             }

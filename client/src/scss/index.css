@@ -1,4 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/a3b9bd61310fe6777980b7b7ce42f937?family=Gotham+C1+Head);
+@import url(//db.onlinewebfonts.com/c/f3c42d5e4c2d28b84d05c2b2f672b3ca?family=Gotham+ExtraLight);
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -202,6 +203,7 @@ body {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: content;
+  overflow-y: scroll;
 }
 
 .songs-container .songs-header {
@@ -247,5 +249,183 @@ body {
 .songs-container .songs-header .songs-context .songs-data .songs__context-data {
   line-height: 0;
   font-size: 14px;
+}
+
+.songs-container .songs-complementary {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 2;
+  top: 10px;
+  top: -2px;
+}
+
+.songs-container .songs-complementary[stuck] {
+  background-color: #181818;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 -1px 0 0 #181818;
+          box-shadow: 0 -1px 0 0 #181818;
+}
+
+.songs-container .songs-complementary .songs-player-buttons {
+  padding: 24px;
+  padding-left: 33px;
+}
+
+.songs-container .songs-complementary .songs-player-buttons .songs__play-button {
+  display: inline-block;
+  background-color: #1db954;
+  border: none;
+  border-radius: 3000px;
+  color: white;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.songs-container .songs-complementary .songs-player-buttons .songs__play-button--active {
+  display: none;
+  background-color: #1db954;
+  border: none;
+  border-radius: 3000px;
+  color: white;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.songs-container .songs-complementary .songs-player-buttons .songs__stop-button--active {
+  display: inline-block;
+  background-color: #1db954;
+  border: none;
+  border-radius: 3000px;
+  color: white;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.songs-container .songs-complementary .songs-player-buttons .songs__stop-button {
+  display: none;
+  background-color: #1db954;
+  border: none;
+  border-radius: 3000px;
+  color: white;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.songs-container .songs-complementary .songs-navbar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1% 40% 26.5% 16% 11%;
+      grid-template-columns: 1% 40% 26.5% 16% 11%;
+  gap: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b3b3b3;
+  letter-spacing: .05em;
+  font-family: 'Gotham ExtraLight';
+  font-size: 14px;
+  padding-left: 16px;
+  line-height: 0;
+  margin-left: 30px;
+}
+
+.songs-container .songs-complementary .songs-navbar .navbar__numeral {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.songs-container .songs-body {
+  margin: 0 32px;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 0;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2% 40% 27% 15% 9%;
+      grid-template-columns: 2% 40% 27% 15% 9%;
+  gap: 15px;
+  font-size: 14px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 58px;
+  color: #b3b3b3;
+  cursor: pointer;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item:hover .list__index {
+  display: none;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item:hover .list__index--play {
+  display: inline-block;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__index {
+  font-size: 16px;
+  color: #b3b3b3;
+  margin-left: 15px;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__index--play {
+  display: none;
+  width: 20px;
+  margin-left: 10px;
+  color: white;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__song-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__song-data .list__image {
+  width: 40px;
+  height: 40px;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__song-data .list__description-container {
+  margin-left: 15px;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__song-data .list__description-container .list__song-title {
+  line-height: 0;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__song-data .list__description-container .list__song-author {
+  line-height: 0;
+  font-size: 14px;
+}
+
+.songs-container .songs-body .songs-list-container .songs-list .list__item .list__album {
+  text-decoration: none;
+  color: #b3b3b3;
 }
 /*# sourceMappingURL=index.css.map */

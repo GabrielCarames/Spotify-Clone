@@ -1,23 +1,41 @@
 import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import SpotifyPlayer from "react-spotify-web-playback"
 
 const Player = ({ accessToken, trackUri }) => {
     const [play, setPlay] = useState(false)
+    // const token = JSON.parse(localStorage.getItem('userLogged'))
+    useEffect(() =>
+        {
+            console.log("hoalsdasdasdasd")
+            setPlay(true)
+        } 
 
-    useEffect(() => setPlay(true), [trackUri])
+    , [trackUri])
     //esto eera !accessToken.accessToken, guerda que a veces se pone con objeto y a veces no
     console.log("accestotek", accessToken)
+    // console.log("tokenasdaskdojasodadjajsd´qwoeqwdasd", token)
+
+    useEffect(() => {
+        console.log("palystate", play)
+    }, [play])
+
+    const dispatch = useDispatch()
+    const song = useSelector(state => state.songReducer)
+    console.log("ISPLAYINGH", song)
     if (!accessToken) return null
 
     return (
         <SpotifyPlayer
-            token={"BQCNQBPBJVNtqjPQtKC80IbhHwn5WcAjFesAF4saFfKEkn9EgmC-oyP-_0Sb5jXg8XQuVtoG8uvy6bALf-U1nCYra6HLIpzQtl__hLDrqCVzmSaPHmKKRJKXS8cawXDdFIPbc92A489-GrKjdPiGzJNOAbEmg8fU8tf9HwRL4tiyOUNO2Piq5x1iudBznwlXo0F2lMoQBd6fHj2aLogl"}
+            token={accessToken}
             showSaveIcon
             callback={state => {
-            if (!state.isPlaying) setPlay(false)
+                console.log("SOYESTAS")
+                if (state.isPlaying) dispatch({type: '@songState', payload: true})
+            if (!state.isPlaying) dispatch({type: '@songState', payload: false})
             }}
-            play={play}
-            uris={["spotify:track:6pSspi3xtrbXr8LqvJ9BJN"]}
+            play={song.isPlaying}
+            uris={[song.uri]}
             styles={{
                 activeColor: '#fff',
                 bgColor: '#181818',

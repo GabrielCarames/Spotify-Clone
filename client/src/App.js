@@ -29,7 +29,7 @@ function App() {
                     <Switch>
                         <Route exact path="/"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route exact path="/yourlibrary" component={YourLibrary} />
-                        <Route exact path="/playlists" component={Songs} />
+                        <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route path="*"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                     </Switch>
                 </div>

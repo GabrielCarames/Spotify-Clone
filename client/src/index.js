@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './scss/index.css';
-import contentReducer from './store/contentReducer';
+import songReducer from './store/songReducer';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 const app = combineReducers({
-    contentReducer
+    songReducer
 })
 
 let store = createStore(app, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

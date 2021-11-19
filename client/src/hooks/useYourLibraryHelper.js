@@ -14,6 +14,7 @@ export function useYourLibraryHelper (accessToken) {
         console.log("cosaa ameter tocen", accessToken)
         spotifyApi.setAccessToken(accessToken)
         spotifyApi.getMe()
+        
         .then(function(data) {
             console.log('Some information about the authenticated user', data.body);
             authUserName = data.body.display_name
