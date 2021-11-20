@@ -35,7 +35,7 @@ const Songs = ({accessToken}) => {
                             <svg height="28" role="img" width="28" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
                         </button>
                         <button className={song.isPlaying ? "songs__stop-button--active" : "songs__stop-button"} onClick={() => {setPlay(false); dispatch({type: '@setSong', payload: playlist.uri}); dispatch({type: '@songState', payload: false})}}>
-                            <svg  height="28" role="img" width="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg>
+                            <svg height="28" role="img" width="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg>
                         </button>
                     </div>
                     <div className="songs-navbar navbar">

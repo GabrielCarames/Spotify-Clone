@@ -28,7 +28,7 @@ function App() {
                     <Main accessToken={userLogged ? userLogged.accessToken : accessToken} > </Main>
                     <Switch>
                         <Route exact path="/"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
-                        <Route exact path="/yourlibrary" component={YourLibrary} />
+                        <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
                         <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route path="*"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                     </Switch>
