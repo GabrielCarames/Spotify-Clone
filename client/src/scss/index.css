@@ -320,8 +320,8 @@ body {
 }
 
 .songs-container .songs-background .songs-complementary[stuck] .songs-navbar {
-  -ms-grid-columns: 1% 39.7% 26.5% 16% 11%;
-      grid-template-columns: 1% 39.7% 26.5% 16% 11%;
+  -ms-grid-columns: 1% 39.7% 26.5% 24% 1%;
+      grid-template-columns: 1% 39.7% 26.5% 24% 1%;
   background-color: #181818;
   margin-left: 0;
   padding-left: 46px;
@@ -379,8 +379,8 @@ body {
 .songs-container .songs-background .songs-complementary .songs-navbar {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1% 39.7% 26.5% 16% 11%;
-      grid-template-columns: 1% 39.7% 26.5% 16% 11%;
+  -ms-grid-columns: 1% 39.7% 26.5% 24% 1%;
+      grid-template-columns: 1% 39.7% 26.5% 24% 1%;
   gap: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -418,8 +418,8 @@ body {
 .songs-container .songs-background .songs-body .songs-list-container .songs-list .list__item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2% 40% 27% 15% 9%;
-      grid-template-columns: 2% 40% 27% 15% 9%;
+  -ms-grid-columns: 2% 40% 27% 23% 1%;
+      grid-template-columns: 2% 40% 27% 23% 1%;
   gap: 15px;
   font-size: 14px;
   -webkit-box-align: center;

@@ -8,8 +8,8 @@ const Songs = ({accessToken}) => {
     console.log("songs", accessToken)
     // console.log("content", content)
     const [play, setPlay] = useState()
-    const { playlist, millisToMinutesAndSeconds } = useSongsHelper(accessToken)
     const dispatch = useDispatch()
+    const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(accessToken, setPlay, dispatch)
     const song = useSelector(state => state.songReducer)
 
     console.log("brotha", playlist)
@@ -53,10 +53,10 @@ const Songs = ({accessToken}) => {
                                 playlist && playlist.tracks.items.map((songItem, id) => {
                                     return (
                                         <li className={song.isPlaying ? song.uri === songItem.track.uri ? "list__item active" : "list__item": "list__item"} key={id} onClick={() => {dispatch({type: '@setSong', payload: songItem.track.uri})}}>
-                                            <div className={song.isPlaying ? song.uri === songItem.track.uri ? "list__index--active" : "list__index" : "list__index"} >{id+1}</div>
-                                            <button className={song.isPlaying ? song.uri === songItem.track.uri ? "list__play-button--active" : "list__play-button" : "list__play-button"}><svg height="32" role="img" width="32" viewBox="0 0 24 24"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
-                                            <button className={song.isPlaying ? song.uri === songItem.track.uri ? "list__stop-button--active" : "list__stop-button" : "list__stop-button"} aria-label="Pausar" tabindex="-1" aria-expanded="false"><svg height="32" role="img" width="32" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg></button>
-                                            <img className={song.isPlaying ? song.uri === songItem.track.uri ? "list__song-is-playing--active" : "list__song-is-playing" : "list__song-is-playing"} alt="" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif" width="14" height="14" />
+                                            <div className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__index")} >{id+1}</div>
+                                            <button className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__play-button")} onClick={() => playSong(song.uri, songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
+                                            <button className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__stop-button")} aria-label="Pausar" tabindex="-1" aria-expanded="false" onClick={() => stopSong(song.uri, songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg></button>
+                                            <img className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__song-is-playing")} alt="playingSong" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif" width="14" height="14" />
                                             <div className="list__song-data">
                                                 <img className="list__image" src={songItem.track.album.images[0].url} alt="" />
                                                 <div className="list__description-container">

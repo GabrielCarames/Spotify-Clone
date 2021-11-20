@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import SpotifyWebApi from "spotify-web-api-node"
 
-export function useSongsHelper (accessToken) {
+export function useSongsHelper (accessToken, setPlay, dispatch) {
 
     const [playlist, setPlaylist] = useState()
 
@@ -44,7 +44,28 @@ export function useSongsHelper (accessToken) {
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
-    return { playlist, millisToMinutesAndSeconds }
+    const defineClassName = (isPlaying, uri, itemUri, className) => {
+        if(isPlaying) {
+            if(uri === itemUri) return className + "--active"
+            else return className
+        } else return className
+    }
+
+    const playSong = (songUri, songItemUri) => { 
+        if(songUri === songItemUri) {
+            setPlay(false)
+            dispatch({type: '@songState', payload: true})
+        } else dispatch({type: '@setSong', payload: songItemUri})
+    }
+
+    const stopSong = (songUri, songItemUri) => { 
+        if(songUri === songItemUri) {
+            setPlay(false)
+            dispatch({type: '@songState', payload: false})
+        }
+    } 
+
+    return { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong }
 }
 
 export default useSongsHelper

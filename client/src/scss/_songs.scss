@@ -94,7 +94,7 @@
                 background-color:  #3D4646;
                 height: 96px;
                 .songs-navbar {
-                    grid-template-columns: 1% 39.7% 26.5% 16% 11%;
+                    grid-template-columns: 1% 39.7% 26.5% 24% 1%;
                     background-color: #181818;
                     margin-left: 0;
                     padding-left: 46px;
@@ -123,7 +123,7 @@
             }
             .songs-navbar {
                 display: grid;
-                grid-template-columns: 1% 39.7% 26.5% 16% 11%;
+                grid-template-columns: 1% 39.7% 26.5% 24% 1%;
                 gap: 15px;
                 align-items: center;
                 border-bottom: 1px solid rgba(255,255,255,.1);
@@ -161,7 +161,7 @@
                     padding-left: 0;
                     .list__item {
                         display: grid;
-                        grid-template-columns: 2% 40% 27% 15% 9%;
+                        grid-template-columns: 2% 40% 27% 23% 1%;
                         gap: 15px;
                         font-size: 14px;
                         align-items: center;

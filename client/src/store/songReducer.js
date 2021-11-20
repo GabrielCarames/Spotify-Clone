@@ -13,7 +13,7 @@ const songReducer = (state = song, {type, payload}) => {
         case '@setSong':
             console.log("payloadnormal", payload)
         
-            songCopy = Object.assign({}, state) //CHE CAPO, FIJATE COMO HACER ESTO CORRECTAMENTE, PORQUE TIPO AGARRAN EL ESTADO DE ANTES DE NULL xD
+            songCopy = Object.assign({}, state)
             songCopy.uri = payload
             return songCopy
         case '@songState':
