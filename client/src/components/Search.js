@@ -4,10 +4,9 @@ import useDashboardHelper from "../hooks/useDashboardHelper"
 import Player from "./Player"
 
 
-const Search = ({code}) => {
+const Search = ({accessToken}) => {
     const [search, setSearch] = useState("careless whisper")
     const [searchResults, setSearchResults] = useState([])
-    const accessToken = useAuthenticationHelper(code)
     const { } = useDashboardHelper(search, setSearch, setSearchResults, accessToken)
 
     return (

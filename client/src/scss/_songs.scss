@@ -21,11 +21,22 @@
         .songs-context {
             display: flex;
             padding: 85px 0 0 33px;
-            .songs__image {
+            .songs-image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 232px;
                 height: 232px;
                 box-shadow: 0 4px 60px rgba(0,0,0,.5);
-                z-index: 1;
+                .songs__image {
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    &.no-image{
+                        width: 64px;
+                        height: 64px;
+                    }
+                }
             }
             .songs-data {
                 display: flex;

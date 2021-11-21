@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
     return {
       results: state
     }
-  }
+}
 
 function App() {
     const code = new URLSearchParams(window.location.search).get("code")
@@ -28,6 +28,7 @@ function App() {
                     <Main accessToken={userLogged ? userLogged.accessToken : accessToken} > </Main>
                     <Switch>
                         <Route exact path="/"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
+                        <Route exact path="/search"><Search accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
                         <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
                         <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route path="*"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>

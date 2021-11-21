@@ -1,10 +1,7 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import Player from "./Player"
-import YourLibrary from "./YourLibrary"
 
 const Main = ({accessToken}) => {
-
     return (
         <>
             <div className="sidebar-container sidebar">
@@ -20,16 +17,18 @@ const Main = ({accessToken}) => {
                             <i className="fas fa-home"></i>
                             <h4 className="sidebar__item-title">Home</h4>
                         </li>
-                        <li className="sidebar__item">
-                            <i className="fas fa-search"></i>
-                            <h4 className="sidebar__item-title">Search</h4>
-                        </li>
-                            <Link to={'/yourlibrary'}> 
-                        <li className="sidebar__item">
-                                <i className="fas fa-book"></i>
-                                <h4 className="sidebar__item-title">Your Library</h4>
-                        </li>
-                            </Link>
+                        <Link to={'/search'}> 
+                            <li className="sidebar__item">
+                                <i className="fas fa-search"></i>
+                                <h4 className="sidebar__item-title">Search</h4>
+                            </li>
+                        </Link>
+                        <Link to={'/yourlibrary'}> 
+                            <li className="sidebar__item">
+                                    <i className="fas fa-book"></i>
+                                    <h4 className="sidebar__item-title">Your Library</h4>
+                            </li>
+                        </Link>
                     </ul>
                 </nav>
             </div>

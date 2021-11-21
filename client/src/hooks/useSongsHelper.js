@@ -9,24 +9,18 @@ export function useSongsHelper (accessToken, dispatch) {
     const { playlistId } = useParams()
     const likedSongs = useSelector(state => state.likedSongsReducer)
     
-    const spotifyApi = new SpotifyWebApi({
-        clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
-    })
-
+    const spotifyApi = new SpotifyWebApi({clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3"})
 
     useEffect(() => {
         if(playlistId !== "likedsongs") {
             spotifyApi.setAccessToken(accessToken)
-            spotifyApi.getPlaylist(playlistId)
-            .then(function(data) {
+            spotifyApi.getPlaylist(playlistId).then(function(data) {
                 console.log('Some information about this playlist', data.body);
                 setPlaylist(data.body)
             }, function(err) {
                 console.log('Something went wrong!', err);
             });
-        } else {
-            setPlaylist(likedSongs)
-        }
+        } else setPlaylist(likedSongs)
     }, [accessToken])
 
     useEffect(() => {
@@ -37,7 +31,6 @@ export function useSongsHelper (accessToken, dispatch) {
             );
             observer.observe(document.getElementsByClassName('songs-complementary')[0]);
         }
-        
     }, [])
 
     const millisToMinutesAndSeconds = (millis) => {

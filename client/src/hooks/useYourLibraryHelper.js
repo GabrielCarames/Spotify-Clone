@@ -34,7 +34,26 @@ export function useYourLibraryHelper (accessToken) {
         }, function(err) {
             console.log('Something went wrong!', err);
         });
-        
+
+        spotifyApi.getCategories({
+            limit : 20,
+            offset: 0,
+            country: 'AR',
+            locale: 'ar_AR'
+        })
+        .then(function(data) {
+          console.log("holasd", data.body);
+        }, function(err) {
+          console.log("Something went wrong!", err);
+        });
+
+        spotifyApi.getFeaturedPlaylists({ limit : 10, offset: 6, country: 'AR', locale: 'ar_AR', timestamp:'2021-11-21T09:00:00' })
+        .then(function(data) {
+          console.log("car", data.body);
+        }, function(err) {
+          console.log("Something went wrong!", err);
+        });
+
     }, [accessToken])
 
     return { playlists, likedSongs }

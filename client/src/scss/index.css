@@ -222,6 +222,8 @@ body {
   border-radius: 4px;
   padding: 20px;
   padding-top: 40px;
+  color: white;
+  text-decoration: none;
 }
 
 .library-container .library-playlists .library-liked-songs-container .library-liked-songs {
@@ -273,12 +275,31 @@ body {
   padding: 85px 0 0 33px;
 }
 
-.songs-container .songs-header .songs-context .songs__image {
+.songs-container .songs-header .songs-context .songs-image-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 232px;
   height: 232px;
   -webkit-box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
           box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.songs-container .songs-header .songs-context .songs-image-container .songs__image {
+  width: 100%;
+  height: 100%;
   z-index: 1;
+}
+
+.songs-container .songs-header .songs-context .songs-image-container .songs__image.no-image {
+  width: 64px;
+  height: 64px;
 }
 
 .songs-container .songs-header .songs-context .songs-data {
