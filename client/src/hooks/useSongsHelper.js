@@ -1,24 +1,21 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SpotifyWebApi from "spotify-web-api-node"
 
-export function useSongsHelper (accessToken, setPlay, dispatch) {
+export function useSongsHelper (accessToken, dispatch) {
 
     const [playlist, setPlaylist] = useState()
-
     const { playlistId } = useParams()
+    const likedSongs = useSelector(state => state.likedSongsReducer)
     
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
     })
 
-    const likedSongs = useSelector(state => state.likedSongsReducer)
 
     useEffect(() => {
-        if(!likedSongs.uri) {
-            console.log("contentebnehoojk", playlistId, accessToken)
+        if(playlistId !== "likedsongs") {
             spotifyApi.setAccessToken(accessToken)
             spotifyApi.getPlaylist(playlistId)
             .then(function(data) {
@@ -34,13 +31,11 @@ export function useSongsHelper (accessToken, setPlay, dispatch) {
 
     useEffect(() => {
         window.onload = function () {
-            console.log("hOLASODLAODALSDO", document.getElementsByClassName('songs-complementary'))
             const observer = new IntersectionObserver( 
                 ([e]) => e.target.toggleAttribute('stuck', e.intersectionRatio < 1),
                 {threshold: [1]}
-              );
-              
-              observer.observe(document.getElementsByClassName('songs-complementary')[0]);
+            );
+            observer.observe(document.getElementsByClassName('songs-complementary')[0]);
         }
         
     }, [])
@@ -60,14 +55,12 @@ export function useSongsHelper (accessToken, setPlay, dispatch) {
 
     const playSong = (songUri, songItemUri) => { 
         if(songUri === songItemUri) {
-            setPlay(false)
             dispatch({type: '@songState', payload: true})
         } else dispatch({type: '@setSong', payload: songItemUri})
     }
 
     const stopSong = (songUri, songItemUri) => { 
         if(songUri === songItemUri) {
-            setPlay(false)
             dispatch({type: '@songState', payload: false})
         }
     } 

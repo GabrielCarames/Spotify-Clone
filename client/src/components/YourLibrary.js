@@ -5,7 +5,7 @@ import Playlists from "./Playlists"
 const YourLibrary = ({accessToken}) => {
     console.log("accestokentaojdadas", accessToken)
     const { playlists, likedSongs } = useYourLibraryHelper(accessToken)
-    console.log("play", playlists)
+    console.log("playlists", playlists)
 
     return (
         <div className="library-container">

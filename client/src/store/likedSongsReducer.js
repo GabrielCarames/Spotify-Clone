@@ -1,5 +1,3 @@
-
-
 const likedSongs = {
     name: "Your liked songs",
     images: [
@@ -15,7 +13,6 @@ const likedSongs = {
     public: false,
     uri: null
 }
-
 
 const likedSongsReducer = (state = likedSongs, {type, payload}) => {
     let songCopy

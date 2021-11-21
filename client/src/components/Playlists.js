@@ -1,8 +1,6 @@
-import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 
 const Playlists = ({playlists}) => {
-    const dispatch = useDispatch()
 
     return (
         playlists.map((playlist, id) => {

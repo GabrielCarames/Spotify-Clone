@@ -1,15 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import useSongsHelper from "../hooks/useSongsHelper"
-import useYourLibraryHelper from "../hooks/useYourLibraryHelper"
-import { useEffect } from "react"
-import { useState } from "react"
 
 const Songs = ({accessToken}) => {
-    console.log("songs", accessToken)
-    // console.log("content", content)
-    const [play, setPlay] = useState()
     const dispatch = useDispatch()
-    const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(accessToken, setPlay, dispatch)
+    const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(accessToken, dispatch)
     const song = useSelector(state => state.songReducer)
     console.log("brotha", playlist)
     return (
@@ -30,10 +24,10 @@ const Songs = ({accessToken}) => {
             <div className="songs-background">
                 <div className="songs-complementary">
                     <div className="songs-player-buttons">
-                        <button className={song.isPlaying ? "songs__play-button--active" : "songs__play-button"} onClick={() => {setPlay(true); dispatch({type: '@setSong', payload: playlist.uri}); dispatch({type: '@songState', payload: true})}}>
+                        <button className={song.isPlaying ? "songs__play-button--active" : "songs__play-button"} onClick={() => {dispatch({type: '@setSong', payload: playlist.uri}); dispatch({type: '@songState', payload: true})}}>
                             <svg height="28" role="img" width="28" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
                         </button>
-                        <button className={song.isPlaying ? "songs__stop-button--active" : "songs__stop-button"} onClick={() => {setPlay(false); dispatch({type: '@setSong', payload: playlist.uri}); dispatch({type: '@songState', payload: false})}}>
+                        <button className={song.isPlaying ? "songs__stop-button--active" : "songs__stop-button"} onClick={() => {dispatch({type: '@setSong', payload: playlist.uri}); dispatch({type: '@songState', payload: false})}}>
                             <svg height="28" role="img" width="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg>
                         </button>
                     </div>

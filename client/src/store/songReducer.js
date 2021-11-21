@@ -1,13 +1,9 @@
-
-
 const song = {
     uri: [null],
     isPlaying: false
 }
 
-
 const songReducer = (state = song, {type, payload}) => {
-    console.log("payloaddelcosoeste", payload)
     let songCopy
     switch (type) {
         case '@setSong':

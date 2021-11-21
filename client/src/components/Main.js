@@ -4,7 +4,6 @@ import Player from "./Player"
 import YourLibrary from "./YourLibrary"
 
 const Main = ({accessToken}) => {
-    const [ playingTrack, setPlayingTrack ] = useState()
 
     return (
         <>
@@ -35,9 +34,8 @@ const Main = ({accessToken}) => {
                 </nav>
             </div>
             <div className="player-container">
-                {accessToken && <Player accessToken={accessToken} trackUri={playingTrack?.uri} />}
+                {accessToken && <Player accessToken={accessToken}/>}
             </div>
-            {/* <YourLibrary /> */}
         </>
     )
 }
