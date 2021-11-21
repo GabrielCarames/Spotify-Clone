@@ -4,11 +4,11 @@ import Search from "./components/Search";
 import Player from "./components/Player";
 import Login from "./components/Login";
 import useAuthenticationHelper from "./hooks/useAuthenticationHelper";
-import useDashboardHelper from "./hooks/useDashboardHelper";
 import YourLibrary from "./components/YourLibrary";
 import Songs from "./components/Songs";
 import { connect, useSelector } from "react-redux";
 import Main from "./components/Main";
+import Category from "./components/Category";
 
 const mapStateToProps = (state) => {
     return {
@@ -29,6 +29,7 @@ function App() {
                     <Switch>
                         <Route exact path="/"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route exact path="/search"><Search accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
+                        <Route exact path="/search/category/:categoryName"><Category accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
                         <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
                         <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
                         <Route path="*"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
