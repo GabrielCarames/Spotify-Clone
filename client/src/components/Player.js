@@ -20,6 +20,19 @@ const Player = ({ accessToken, trackUri }) => {
         console.log("palystate", play)
     }, [play])
 
+    const a = [
+        "spotify:track:4nmne9J3YCEdhvjTzwiAgu",
+        "spotify:track:7DD1ojeTUwnW65g5QuZw7X",
+        "spotify:track:1PnuVfURSyhhOI2NCXTLSF",
+        "spotify:track:47wPvRG8FEwbZP22UBgTQr",
+        "spotify:track:41pOIT2t1rvr2Trg1HQChZ",
+        "spotify:track:72vzpLLJZgvG7TqKar57TX",
+        "spotify:track:54eZmuggBFJbV7k248bTTt",
+        "spotify:track:1a8JpAL3vbAdXYrEABvOtb",
+        "spotify:track:500h8jAdr7LvzzXlm1qxtK",
+        "spotify:track:2NjhV99ncY4A5lSkTHvTtU"
+      ]
+
     const dispatch = useDispatch()
     const song = useSelector(state => state.songReducer)
     console.log("ISPLAYINGH", song)
@@ -35,7 +48,7 @@ const Player = ({ accessToken, trackUri }) => {
             if (!state.isPlaying) dispatch({type: '@songState', payload: false})
             }}
             play={song.isPlaying}
-            uris={[song.uri]}
+            uris={song.uri[0]} //a
             styles={{
                 activeColor: '#fff',
                 bgColor: '#181818',

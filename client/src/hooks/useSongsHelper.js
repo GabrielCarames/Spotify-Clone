@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SpotifyWebApi from "spotify-web-api-node"
 
@@ -8,21 +9,27 @@ export function useSongsHelper (accessToken, setPlay, dispatch) {
     const [playlist, setPlaylist] = useState()
 
     const { playlistId } = useParams()
-
+    
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
     })
 
+    const likedSongs = useSelector(state => state.likedSongsReducer)
+
     useEffect(() => {
-        console.log("contentebnehoojk", playlistId, accessToken)
-        spotifyApi.setAccessToken(accessToken)
-        spotifyApi.getPlaylist(playlistId)
-        .then(function(data) {
-            console.log('Some information about this playlist', data.body);
-            setPlaylist(data.body)
-        }, function(err) {
-            console.log('Something went wrong!', err);
-        });
+        if(!likedSongs.uri) {
+            console.log("contentebnehoojk", playlistId, accessToken)
+            spotifyApi.setAccessToken(accessToken)
+            spotifyApi.getPlaylist(playlistId)
+            .then(function(data) {
+                console.log('Some information about this playlist', data.body);
+                setPlaylist(data.body)
+            }, function(err) {
+                console.log('Something went wrong!', err);
+            });
+        } else {
+            setPlaylist(likedSongs)
+        }
     }, [accessToken])
 
     useEffect(() => {

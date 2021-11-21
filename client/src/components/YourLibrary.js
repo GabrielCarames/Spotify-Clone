@@ -3,6 +3,7 @@ import LikedSongs from "./LikedSongs"
 import Playlists from "./Playlists"
 
 const YourLibrary = ({accessToken}) => {
+    console.log("accestokentaojdadas", accessToken)
     const { playlists, likedSongs } = useYourLibraryHelper(accessToken)
     console.log("play", playlists)
 
@@ -15,7 +16,7 @@ const YourLibrary = ({accessToken}) => {
                         {likedSongs && <LikedSongs likedSongs={likedSongs.items} />}
                     </ul>
                     <h2 className="library-liked-songs__title">Liked Songs</h2>
-                    <span className="library-liked-songs__length">{likedSongs.total} liked songs</span>
+                    <span className="library-liked-songs__length">{likedSongs && likedSongs.total} liked songs</span>
                 </div>
                 <div className="library-playlists-container">
                     <ul className="library-playlist list">

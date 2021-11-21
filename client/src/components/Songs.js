@@ -11,13 +11,12 @@ const Songs = ({accessToken}) => {
     const dispatch = useDispatch()
     const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(accessToken, setPlay, dispatch)
     const song = useSelector(state => state.songReducer)
-
     console.log("brotha", playlist)
     return (
         <div className="songs-container">
             <header className="songs-header">
                 <div className="songs-context">
-                    <img className="songs__image" src={playlist && playlist.images[0].url} alt="" />
+                    <img className="songs__image" src={playlist && playlist.images[0].url } alt="" />
                     <div className="songs-data">
                         <p className="songs__context-data">{playlist && playlist.owner.display_name} {playlist && playlist.tracks.total} songs</p>
                         <h1 className="songs__context-title">{playlist && playlist.name}</h1>
@@ -52,15 +51,15 @@ const Songs = ({accessToken}) => {
                             {
                                 playlist && playlist.tracks.items.map((songItem, id) => {
                                     return (
-                                        <li className={song.isPlaying ? song.uri === songItem.track.uri ? "list__item active" : "list__item": "list__item"} key={id} onClick={() => {dispatch({type: '@setSong', payload: songItem.track.uri})}}>
-                                            <div className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__index")} >{id+1}</div>
-                                            <button className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__play-button")} onClick={() => playSong(song.uri, songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
-                                            <button className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__stop-button")} aria-label="Pausar" tabindex="-1" aria-expanded="false" onClick={() => stopSong(song.uri, songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg></button>
-                                            <img className={defineClassName(song.isPlaying, song.uri, songItem.track.uri, "list__song-is-playing")} alt="playingSong" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif" width="14" height="14" />
+                                        <li className={song.isPlaying ? song.uri[0] === songItem.track.uri ? "list__item active" : "list__item": "list__item"} key={id} onClick={() => {dispatch({type: '@setSong', payload: songItem.track.uri})}}>
+                                            <div className={defineClassName(song.isPlaying, song.uri[0], songItem.track.uri, "list__index")} >{id+1}</div>
+                                            <button className={defineClassName(song.isPlaying, song.uri[0], songItem.track.uri, "list__play-button")} onClick={() => playSong(song.uri[0], songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
+                                            <button className={defineClassName(song.isPlaying, song.uri[0], songItem.track.uri, "list__stop-button")} aria-label="Pausar" tabindex="-1" aria-expanded="false" onClick={() => stopSong(song.uri[0], songItem.track.uri)} ><svg height="32" role="img" width="32" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18" fill="currentColor"></rect><rect x="15" y="3" width="4" height="18" fill="currentColor"></rect></svg></button>
+                                            <img className={defineClassName(song.isPlaying, song.uri[0], songItem.track.uri, "list__song-is-playing")} alt="playingSong" src="https://open.scdn.co/cdn/images/equaliser-animated-green.f93a2ef4.gif" width="14" height="14" />
                                             <div className="list__song-data">
                                                 <img className="list__image" src={songItem.track.album.images[0].url} alt="" />
                                                 <div className="list__description-container">
-                                                    <p className="list__song-title">{songItem.track.name}</p>
+                                                    <p className="list__song-title">{songItem.track.name }</p>
                                                     <span className="list__song-author">{songItem.track.artists[0].name}</span>
                                                 </div>
                                             </div>

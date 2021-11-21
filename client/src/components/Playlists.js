@@ -7,7 +7,7 @@ const Playlists = ({playlists}) => {
     return (
         playlists.map((playlist, id) => {
             return (
-                <li className="list__item" key={id} onClick={() => {dispatch({type: '@updateContent', payload: ["songs", playlist.id]})}}>
+                <li className="list__item" key={id}>
                     <Link to={`/playlist/${playlist.id}`}> 
                     
                     <div className="list__images-container">

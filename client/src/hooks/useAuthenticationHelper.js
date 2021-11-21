@@ -8,7 +8,6 @@ export function useAuthenticationHelper (code) {
 
     useEffect(() => {
         if (code) {
-            console.log("cosadedasdasdad", code)
             axios.post("http://localhost:3001/login", {code}).then(res => {
               console.log("datos", res)
               const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn}

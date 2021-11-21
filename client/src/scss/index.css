@@ -302,6 +302,7 @@ body {
 .songs-container .songs-header .songs-context .songs-data .songs__context-title {
   line-height: 0;
   font-size: 96px;
+  letter-spacing: -.04em;
 }
 
 .songs-container .songs-header .songs-context .songs-data .songs__context-data {

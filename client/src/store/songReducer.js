@@ -1,23 +1,20 @@
 
 
 const song = {
-    uri: null,
+    uri: [null],
     isPlaying: false
 }
 
 
 const songReducer = (state = song, {type, payload}) => {
-    console.log("SOESTADOREPODEROSODAAKSODASJIDSD´FJISDHFOSDIOFDJFIWHREO´FVPSDMFSDFSD", state)
+    console.log("payloaddelcosoeste", payload)
     let songCopy
     switch (type) {
         case '@setSong':
-            console.log("payloadnormal", payload)
-        
             songCopy = Object.assign({}, state)
-            songCopy.uri = payload
+            songCopy.uri[0] = payload
             return songCopy
         case '@songState':
-            console.log("payloaddeelstatedo", payload)
             songCopy = Object.assign({}, state)
             songCopy.isPlaying = payload
             return songCopy
