@@ -20,7 +20,7 @@ function App() {
     const code = new URLSearchParams(window.location.search).get("code")
     const { accessToken } = useAuthenticationHelper(code)
     const userLogged = JSON.parse(localStorage.getItem('userLogged'))
-
+    console.log("userlogged", userLogged, "code", code, "accesToken", accessToken)
     return (
         userLogged !== null || code !== null ? 
             <Router>

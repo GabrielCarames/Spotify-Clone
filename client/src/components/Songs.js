@@ -54,7 +54,7 @@ const Songs = ({accessToken}) => {
                                                 <img className="list__image" src={songItem.track.album.images[0].url} alt="" />
                                                 <div className="list__description-container">
                                                     <p className="list__song-title">{songItem.track.name }</p>
-                                                    <span className="list__song-author">{songItem.track.artists[0].name}</span>
+                                                    <p className="list__song-author">{songItem.track.artists[0].name}</p>
                                                 </div>
                                             </div>
                                             <a className="list__album" href="#/">{songItem.track.album.name}</a>

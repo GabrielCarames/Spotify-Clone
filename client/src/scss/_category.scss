@@ -1,0 +1,107 @@
+.category-container {
+    grid-area: content;
+    margin: 0;
+    overflow-y: auto;
+    background-color: #121212;
+    .category-header {
+        height: 250px;
+        padding: 30px;
+        box-sizing: border-box;
+        .header__title {
+            font-size: 96px;
+            letter-spacing: -.1em;
+            line-height: 0;
+            margin-top: 180px;
+            text-transform:capitalize;
+        }
+    }
+    .category-results-container {
+        .category-playlists {
+            padding: 34px;
+            padding-top: 50px;
+            .category__title {
+                font-size: 23px;
+                line-height: .9;
+            }
+            .category-playlists-list {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin-top: -5px;
+                .list__item {
+                    width: 180px;
+                    height: min-content;
+                    margin-left: 20px;
+                    background-color: #181818;
+                    padding: 16px;
+                    padding-bottom: 0;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    transition: background-color .3s ease;
+                    color: white;
+                    height: 100%;
+                    &:nth-child(1) {
+                        margin-left: 0;
+                    }
+                    &:hover {
+                        background-color: #282828;
+                        .list__link {
+                            .list-image-container {
+                                .list__play-button {
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                    .list__link {
+                        text-decoration: none;
+                        .list-image-container {
+                            position: relative;
+                            .list__image {
+                                width: 148px;
+                                height: 148px;
+                            }
+                            .list__play-button {
+                                display: none;
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                margin-right: 10px;
+                                margin-bottom: 10px;
+                                background-color: #1db954;
+                                color: #fff;
+                                border: none;
+                                border-radius: 3000px;
+                                width: 40px;
+                                height: 40px;
+                                &:hover {
+                                    transform: scale(1.06);
+                                }
+                            }
+                        }
+                        .list__description-container {
+                            margin-top: 20px;
+                            .list__title {
+                                font-size: 16px;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                            .list__description {
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                display: -webkit-box;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: normal;
+                                color: rgb(179, 179, 179);
+                                margin-top: -10px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

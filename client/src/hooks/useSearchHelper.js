@@ -30,17 +30,6 @@ export function useSearchHelper (search, setSearchResults, categories, setCatego
         
     }, [search, accessToken])
 
-    useEffect(() => {
-        window.onload = function () {
-            categories.items.forEach(category => {
-                var randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
-                console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH", randomColor, document.getElementById(category.id))
-                document.getElementById(category.id).style.backgroundColor = randomColor
-                
-            });
-        }
-    }, [categories])
-
     return {
         
     } 

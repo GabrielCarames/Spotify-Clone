@@ -24,12 +24,12 @@ const Search = ({accessToken}) => {
                     {
                         categories.items && categories.items.map((category, id) => {
                             return (
-                                <li className="list__item" key={id} id={category.id}>
-                                    <Link to={`/search/category/${category.id}`}>
-                                        <h3 className="list__category-title">{category.name}</h3>
-                                        <img className="list__category-image" src={category.icons[0].url} alt="category" />
+                                    <Link className="list__link" to={`/search/category/${category.id}`}>
+                                        <li className="list__item" key={id} id={category.id} style={{backgroundColor: "#"+((20<<20)*Math.random()|0).toString(16)}}>
+                                                <p className="list__category-title">{category.name}</p>
+                                                <img className="list__category-image" src={category.icons[0].url} alt="category" />
+                                        </li>
                                     </Link>
-                                </li>
                             )
                         })
                     }
