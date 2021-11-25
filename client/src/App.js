@@ -9,6 +9,7 @@ import Songs from "./components/Songs";
 import { connect, useSelector } from "react-redux";
 import Main from "./components/Main";
 import Category from "./components/Category";
+import Results from "./components/Results";
 
 const mapStateToProps = (state) => {
     return {
@@ -18,24 +19,28 @@ const mapStateToProps = (state) => {
 
 function App() {
     const code = new URLSearchParams(window.location.search).get("code")
-    const { accessToken } = useAuthenticationHelper(code)
+    console.log("code", code)
+    const { } = useAuthenticationHelper(code)
     const userLogged = JSON.parse(localStorage.getItem('userLogged'))
-    console.log("userlogged", userLogged, "code", code, "accesToken", accessToken)
+    console.log("userlogged", userLogged)
     return (
-        userLogged !== null || code !== null ? 
-            <Router>
-                <div className="app-container">
-                    <Main accessToken={userLogged ? userLogged.accessToken : accessToken} > </Main>
-                    <Switch>
-                        <Route exact path="/"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
-                        <Route exact path="/search"><Search accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
-                        <Route exact path="/search/category/:categoryName"><Category accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
-                        <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /> </Route>
-                        <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
-                        <Route path="*"><YourLibrary accessToken={userLogged ? userLogged.accessToken : accessToken} /></Route>
-                    </Switch>
-                </div>
-            </Router>
+        userLogged !== null ? 
+            // code !== null
+                <Router>
+                    <div className="app-container">
+                        <Main accessToken={userLogged.accessToken} > </Main>
+                        <Switch>
+                            <Route exact path="/"><YourLibrary accessToken={userLogged.accessToken} /></Route>
+                            <Route exact path="/search"><Search accessToken={userLogged.accessToken} /> </Route>
+                            <Route exact path="/search/category/:categoryName"><Category accessToken={userLogged.accessToken } /> </Route>
+                            <Route exact path="/search/:search"><Results accessToken={userLogged.accessToken } /> </Route>
+                            <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged.accessToken } /> </Route>
+                            <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged.accessToken } /></Route>
+                            <Route path="*"><YourLibrary accessToken={userLogged.accessToken } /></Route>
+                        </Switch>
+                    </div>
+                </Router>
+           
         :   <Login />
     )
 }

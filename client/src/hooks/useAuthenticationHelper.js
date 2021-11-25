@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export function useAuthenticationHelper (code) {
-    const [refreshToken, setRefreshToken] = useState()
-    const [accessToken, setAccessToken] = useState()
-    const [expiresIn, setExpiresIn] = useState()
+    // const [refreshToken, setRefreshToken] = useState()
+    // const [accessToken, setAccessToken] = useState()
+    // const [expiresIn, setExpiresIn] = useState()
+    const userLogged = JSON.parse(localStorage.getItem('userLogged'))
 
     useEffect(() => {
         if (code) {
             axios.post("http://localhost:3001/login", {code}).then(res => {
               console.log("datos", res)
               const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn}
-              setAccessToken(userLogginData.accessToken)
-              setRefreshToken(userLogginData.refreshToken)
-              setExpiresIn(userLogginData.expiresIn)
+            //   setAccessToken(userLogginData.accessToken)
+            //   setRefreshToken(userLogginData.refreshToken)
+            //   setExpiresIn(userLogginData.expiresIn)
               localStorage.setItem('userLogged', JSON.stringify(userLogginData))
               window.history.pushState({}, null, "/")
             }).catch((err) => {
@@ -24,17 +25,24 @@ export function useAuthenticationHelper (code) {
     }, [code])
 
     useEffect(() => {
-        if (!refreshToken || !expiresIn) return
+        console.log("soyelmalo", userLogged)
+        if (!userLogged) return
         const interval = setInterval(() => {
+            console.log("hoalsd'asd'¿", userLogged.refreshToken)
+            const refreshToken = userLogged.refreshToken
             axios.post("http://localhost:3001/refresh", {refreshToken}).then(res => {
-              setAccessToken(res.data.accessToken)
-              setExpiresIn(res.data.expiresIn)
+                console.log("me refresque el token", res.data)
+                const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": refreshToken, "expiresIn": res.data.expiresIn}
+                localStorage.setItem('userLogged', JSON.stringify(userLogginData))
+                // setAccessToken(userLogginData.accessToken)
+                // setExpiresIn(expiresIn)
             }).catch(() => {window.location = "/"})
-        }, (expiresIn - 60) * 1000)
+        }, (userLogged.expiresIn - 60) * 1000)
         return () => clearInterval(interval)
-    }, [refreshToken, expiresIn])
+    }, [userLogged && userLogged.refreshToken, userLogged && userLogged.expiresIn])
+    // }, [refreshToken, expiresIn])
 
-    return { accessToken }
+    return {  }
 }
 
 export default useAuthenticationHelper

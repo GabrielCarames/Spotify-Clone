@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 import useSearchHelper from "../hooks/useSearchHelper"
 
 const Search = ({accessToken}) => {
-    const [search, setSearch] = useState("careless whisper")
+    console.log("acces", accessToken)
+    const [search, setSearch] = useState()
     const [searchResults, setSearchResults] = useState([])
-    const [categories, setCategories] = useState("careless whisper")
+    const [categories, setCategories] = useState()
     const { } = useSearchHelper(search, setSearchResults, categories, setCategories, accessToken)
     console.log("aspdkaspdasd", categories)
     
@@ -13,16 +14,16 @@ const Search = ({accessToken}) => {
     return (
         <div className="search-container">
             <div className="searcher-container">
-                <form>
-                    <input type="text" placeholder="buscar cancion" onChange={e => setSearch(e.target.value)} />
-                    <button >buscar</button>
-                </form>
+                <div className="searcher-input-container">
+                    <i className="fas fa-search"></i>
+                    <input className="searcher__input" type="text" placeholder="Artists, songs or podcasts" onChange={e => setSearch(e.target.value)} />
+                </div>
             </div>
             <div className="search-categories-container">
                 <h5 className="search__title">Browse all</h5>
                 <ul className="search-categories-list list">
                     {
-                        categories.items && categories.items.map((category, id) => {
+                        categories && categories.items && categories.items.map((category, id) => {
                             return (
                                     <Link className="list__link" to={`/search/category/${category.id}`}>
                                         <li className="list__item" key={id} id={category.id} style={{backgroundColor: "#"+((20<<20)*Math.random()|0).toString(16)}}>
