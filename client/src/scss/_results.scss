@@ -5,9 +5,10 @@
     padding: 35px;
     display: grid;
     grid-template-columns: 385px 1170px;
-    grid-template-rows: 282px repeat(7, 307px);
+    grid-template-rows: 282px auto;
     grid-template-areas: "topResult songs" "type type";
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 40px;
     margin-top: 40px;
     .results-top-result {
         grid-area: topResult;
@@ -37,14 +38,18 @@
                 height: 92px;
             }
             .top-result-info {
-                margin-top: 10px;
                 position: relative;
                 .top-result__title {
                     font-size: 32px;
-                    line-height: 1;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-top: 10px;
                 }
                 .top-result__data {
                     line-height: 0;
+                    margin-top: -30px;
+                    font-size: 14px;
                     .top-result__author {
                         color: #b3b3b3;
                         margin-right: 20px;
@@ -154,71 +159,85 @@
             }
         }
     }
-    .top-results-type-container {
+    .types-results-container {
         grid-area: type;
-        .type-container__title {
-            font-size: 24px;
-        }
-        .type-container-list {
-            display: flex;
-            padding-left: 0px;
-            list-style: none;
-            .list__item {
-                width: 180px;
-                height: 258px;
-                background-color: #181818;
-                padding: 20px;
-                box-sizing: border-box;
-                cursor: pointer;
-                position: relative;
-                margin-left: 20px;
-                border-radius: 8px;
-                &:nth-child(1) {
-                    margin-left: 0;
-                }
-                &:hover {
-                    background-color: #282828;
-                    .list__button {
-                        display: inline-block;
-                        transform: scale(1.06);
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(auto, 307px);
+        gap: 40px;
+        .results-type {
+            .type-container__title {
+                font-size: 24px;
+                text-transform:capitalize;
+            }
+            .type-container-list {
+                display: flex;
+                padding-left: 0px;
+                list-style: none;
+                margin-top: 20px;
+                .list__item {
+                    width: 180px;
+                    height: 258px;
+                    background-color: #181818;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    position: relative;
+                    margin-left: 20px;
+                    border-radius: 8px;
+                    &:nth-child(1) {
+                        margin-left: 0;
                     }
-                }
-                .list__image {
-                    width: 149px;
-                    height: 149px;
-                    border-radius: 500px;
-                }
-                .list__image--no-image {
-                    width: 149px;
-                    height: 149px;
-                    border-radius: 500px;
-                    background-color: #333;
-                }
-                .list__button {
-                    display: none;
-                    position: absolute;
-                    right: 0;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 500px;
-                    border: none;
-                    background-color: #1db954;
-                    color: white;
-                    margin-top: 100px;
-                    margin-right: 20px;
                     &:hover {
-                        transform: scale(1.06);
+                        background-color: #282828;
+                        .list__link {
+                            .list__button {
+                                display: inline-block;
+                                transform: scale(1.06);
+                            }
+                        }
                     }
-                }
-                .list__artist-name {
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    font-size: 16px;
-                }
-                .list__type {
-                    font-size: 14px;
-                    color: rgb(179, 179, 179);
+                    .list__link {
+                        text-decoration: none;
+                        color: white;
+                        .list__image {
+                            width: 149px;
+                            height: 149px;
+                            border-radius: 500px;
+                        }
+                        .list__image--no-image {
+                            width: 149px;
+                            height: 149px;
+                            border-radius: 500px;
+                            background-color: #333;
+                        }
+                        .list__button {
+                            display: none;
+                            position: absolute;
+                            right: 0;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 500px;
+                            border: none;
+                            background-color: #1db954;
+                            color: white;
+                            margin-top: 100px;
+                            margin-right: 20px;
+                            &:hover {
+                                transform: scale(1.06);
+                            }
+                        }
+                        .list__artist-name {
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            font-size: 16px;
+                        }
+                        .list__type {
+                            font-size: 14px;
+                            color: rgb(179, 179, 179);
+                        }
+                    }
                 }
             }
         }

@@ -874,10 +874,12 @@ body {
   display: grid;
   -ms-grid-columns: 385px 1170px;
       grid-template-columns: 385px 1170px;
-  -ms-grid-rows: 282px (307px)[7];
-      grid-template-rows: 282px repeat(7, 307px);
+  -ms-grid-rows: 282px auto;
+      grid-template-rows: 282px auto;
       grid-template-areas: "topResult songs" "type type";
-  gap: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 40px;
   margin-top: 40px;
 }
 
@@ -918,17 +920,21 @@ body {
 }
 
 .results-container .results-top-result .top-result-song .top-result-info {
-  margin-top: 10px;
   position: relative;
 }
 
 .results-container .results-top-result .top-result-song .top-result-info .top-result__title {
   font-size: 32px;
-  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 10px;
 }
 
 .results-container .results-top-result .top-result-song .top-result-info .top-result__data {
   line-height: 0;
+  margin-top: -30px;
+  font-size: 14px;
 }
 
 .results-container .results-top-result .top-result-song .top-result-info .top-result__data .top-result__author {
@@ -1061,26 +1067,35 @@ body {
   content: ",";
 }
 
-.results-container .top-results-type-container {
+.results-container .types-results-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: type;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: (307px)[auto];
+      grid-template-rows: repeat(auto, 307px);
+  gap: 40px;
 }
 
-.results-container .top-results-type-container .type-container__title {
+.results-container .types-results-container .results-type .type-container__title {
   font-size: 24px;
+  text-transform: capitalize;
 }
 
-.results-container .top-results-type-container .type-container-list {
+.results-container .types-results-container .results-type .type-container-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding-left: 0px;
   list-style: none;
+  margin-top: 20px;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item {
+.results-container .types-results-container .results-type .type-container-list .list__item {
   width: 180px;
   height: 258px;
   background-color: #181818;
@@ -1093,34 +1108,39 @@ body {
   border-radius: 8px;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item:nth-child(1) {
+.results-container .types-results-container .results-type .type-container-list .list__item:nth-child(1) {
   margin-left: 0;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item:hover {
+.results-container .types-results-container .results-type .type-container-list .list__item:hover {
   background-color: #282828;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item:hover .list__button {
+.results-container .types-results-container .results-type .type-container-list .list__item:hover .list__link .list__button {
   display: inline-block;
   -webkit-transform: scale(1.06);
           transform: scale(1.06);
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__image {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link {
+  text-decoration: none;
+  color: white;
+}
+
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__image {
   width: 149px;
   height: 149px;
   border-radius: 500px;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__image--no-image {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__image--no-image {
   width: 149px;
   height: 149px;
   border-radius: 500px;
   background-color: #333;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__button {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__button {
   display: none;
   position: absolute;
   right: 0;
@@ -1134,19 +1154,19 @@ body {
   margin-right: 20px;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__button:hover {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__button:hover {
   -webkit-transform: scale(1.06);
           transform: scale(1.06);
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__artist-name {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__artist-name {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 16px;
 }
 
-.results-container .top-results-type-container .type-container-list .list__item .list__type {
+.results-container .types-results-container .results-type .type-container-list .list__item .list__link .list__type {
   font-size: 14px;
   color: #b3b3b3;
 }

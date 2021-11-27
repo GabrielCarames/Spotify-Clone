@@ -5,7 +5,7 @@ import SpotifyWebApi from "spotify-web-api-node"
 export default function useResultsHelper(accessToken) {
     const [results, setResults] = useState()
     const [topResult, setTopResult] = useState()
-    const [artists, setArtists] = useState()
+    const [sections, setSections] = useState([])
     const { search } = useParams()
 
     useEffect(() => {
@@ -16,13 +16,19 @@ export default function useResultsHelper(accessToken) {
         spotifyApi.searchTracks(search).then(res => {
             setResults(res.body.tracks)
         })
-        spotifyApi.searchArtists(search)
-        .then(function(data) {
+        spotifyApi.searchArtists(search).then(function(data) {
             console.log('Search artists by "Love"', data.body.artists);
             const restringedArtists = data.body.artists.items.slice(0, 8)
-            setArtists(restringedArtists)
+            setSections(sections => sections.concat({artists: restringedArtists}))
         }, function(err) {
             console.error(err);
+        });
+        spotifyApi.searchPlaylists(search).then(function(data) {
+            console.log('Found playlists are', data.body);
+            const restringedPlaylists = data.body.playlists.items.slice(0, 8)
+            setSections(sections => sections.concat({playlists: restringedPlaylists}))
+        }, function(err) {
+            console.log('Something went wrong!', err);
         });
     }, [search])
 
@@ -41,6 +47,6 @@ export default function useResultsHelper(accessToken) {
         }
     }, [results])
 
-    return {results, millisToMinutesAndSeconds, topResult, artists}
+    return {results, millisToMinutesAndSeconds, topResult, sections}
 }
 
