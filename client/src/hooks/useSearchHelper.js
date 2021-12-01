@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import SpotifyWebApi from "spotify-web-api-node"
 
 export function useSearchHelper (search, setSearchResults, categories, setCategories, accessToken) {
+
     const history = useHistory()
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
@@ -26,18 +27,17 @@ export function useSearchHelper (search, setSearchResults, categories, setCatego
         });
         // if (!search) return setSearchResults([])
         if(search) {
-            setTimeout(async () => {
+            const timer = setTimeout(async () => {
+                spotifyApi.searchTracks(search).then(res => {
+                    console.log("search", res)
+                })
                 history.push(`search/${search}`)
-                // spotifyApi.searchTracks(search).then(res => {
-                //     console.log("search", res)
-                // })
             }, 1000)
+            return () => clearTimeout(timer);
         }
     }, [search, accessToken])
 
-    return {
-        
-    } 
+    return {} 
 }
 
 export default useSearchHelper

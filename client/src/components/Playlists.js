@@ -6,7 +6,7 @@ const Playlists = ({playlists}) => {
         playlists.map((playlist, id) => {
             return (
                 <li className="list__item" key={id}>
-                    <Link to={`/playlist/${playlist.id}`}>
+                    <Link className="list__link" to={`/playlist/${playlist.id}`}>
                         <div className="list__images-container">
                             {
                                 playlist.images.length >= 1 

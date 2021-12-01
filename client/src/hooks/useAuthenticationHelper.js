@@ -32,7 +32,8 @@ export function useAuthenticationHelper (code) {
             const refreshToken = userLogged.refreshToken
             axios.post("http://localhost:3001/refresh", {refreshToken}).then(res => {
                 console.log("me refresque el token", res.data)
-                const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": refreshToken, "expiresIn": res.data.expiresIn}
+                const userLogged = JSON.parse(localStorage.getItem('userLogged'))
+                const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn}
                 localStorage.setItem('userLogged', JSON.stringify(userLogginData))
                 // setAccessToken(userLogginData.accessToken)
                 // setExpiresIn(expiresIn)

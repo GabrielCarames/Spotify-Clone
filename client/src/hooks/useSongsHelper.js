@@ -12,6 +12,7 @@ export function useSongsHelper (accessToken, dispatch) {
     const spotifyApi = new SpotifyWebApi({clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3"})
 
     useEffect(() => {
+
         if(playlistId !== "likedsongs") {
             spotifyApi.setAccessToken(accessToken)
             spotifyApi.getPlaylist(playlistId).then(function(data) {

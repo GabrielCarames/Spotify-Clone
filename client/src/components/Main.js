@@ -13,17 +13,19 @@ const Main = ({accessToken}) => {
                         </svg>
                     </div>
                     <ul className="sidebar__list">
-                        <li className="sidebar__item">
-                            <i className="fas fa-home"></i>
-                            <h4 className="sidebar__item-title">Home</h4>
-                        </li>
-                        <Link to={'/search'}> 
+                        <Link className="sidebar__link" to={'/search'}> 
+                            <li className="sidebar__item">
+                                <i className="fas fa-home"></i>
+                                <h4 className="sidebar__item-title">Home</h4>
+                            </li>
+                        </Link>
+                        <Link className="sidebar__link" to={'/search'}> 
                             <li className="sidebar__item">
                                 <i className="fas fa-search"></i>
                                 <h4 className="sidebar__item-title">Search</h4>
                             </li>
                         </Link>
-                        <Link to={'/yourlibrary'}> 
+                        <Link className="sidebar__link" to={'/yourlibrary'}> 
                             <li className="sidebar__item">
                                     <i className="fas fa-book"></i>
                                     <h4 className="sidebar__item-title">Your Library</h4>

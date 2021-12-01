@@ -21,6 +21,7 @@
                 list-style: none;
                 padding: 0;
                 padding-left: 20px;
+                margin: 0;
                 .list__item {
                     width: 180px;
                     height: 260px;
@@ -32,74 +33,80 @@
                     &:nth-child(1) {
                         margin-left: 0;
                     }
-                    .list__images-container {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 150px;
-                        height: 150px;
-                        background-color: #333;
-                        color: #b3b3b3;
-                        .list__image {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                        .list__image--unavailable {
-                            object-fit: cover;
+                    .list__link {
+                        text-decoration: none;
+                        .list__images-container {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
                             width: 150px;
                             height: 150px;
+                            background-color: #333;
+                            color: #b3b3b3;
+                            .list__image {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                            .list__image--unavailable {
+                                object-fit: cover;
+                                width: 150px;
+                                height: 150px;
+                            }
                         }
-                    }
-                    .list__data-container{
-                        padding-top: 5px;
-                        .list__playlist-name {
-                            color: white;
-                        }
-                        .list__playlist-user {
-                            color: rgb(179, 179, 179);
-                            font-size: 14px;
-                            line-height: 0;
+                        .list__data-container{
+                            padding-top: 5px;
+                            .list__playlist-name {
+                                color: white;
+                            }
+                            .list__playlist-user {
+                                color: rgb(179, 179, 179);
+                                font-size: 14px;
+                                line-height: 0;
+                            }
                         }
                     }
                 }
             }
         }
-        .library-liked-songs-container {
-            width: 385px;
-            height: min-content;
-            background: linear-gradient(149.46deg,#450af5,#8e8ee5 99.16%);
-            border-radius: 4px;
-            padding: 20px;
-            padding-top: 40px;
-            color: white;
+        .list__link {
             text-decoration: none;
-            .library-liked-songs {
-                list-style: none;
-                padding: 0;
-                height: 90px;
-                width: 100%;
-                overflow: hidden;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                display: -webkit-box;
-                white-space: normal;
-                .list__item {
-                    display: inline;
-                    line-height: 1.4;
-                    .list__artist {
-                    }
-                    .list__name {
-                        opacity: .7;
-                    }
-                    .list__circle {
-    
+            height: 260px;
+            .library-liked-songs-container {
+                width: 385px;
+                background: linear-gradient(149.46deg,#450af5,#8e8ee5 99.16%);
+                border-radius: 4px;
+                padding: 20px;
+                padding-top: 40px;
+                color: white;
+                text-decoration: none;
+                .library-liked-songs {
+                    list-style: none;
+                    padding: 0;
+                    height: 90px;
+                    width: 100%;
+                    overflow: hidden;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    white-space: normal;
+                    .list__item {
+                        display: inline;
+                        line-height: 1.4;
+                        .list__artist {
+                        }
+                        .list__name {
+                            opacity: .7;
+                        }
+                        .list__circle {
+        
+                        }
                     }
                 }
-            }
-            .library-liked-songs__title {
-                font-size: 32px;
-                line-height: .5;
+                .library-liked-songs__title {
+                    font-size: 32px;
+                    line-height: .5;
+                }
             }
         }
     }

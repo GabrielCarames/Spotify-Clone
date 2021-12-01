@@ -25,30 +25,33 @@
             .sidebar__list {
                 list-style: none;
                 padding: 0;
-                .sidebar__item {
-                    display: flex;
-                    align-items: center;
-                    height: 40px;
-                    margin: 0 8px;
-                    padding: 5px;
-                    padding-left: 20px;
-                    cursor: pointer;
-                    box-sizing: border-box;
-                    color: #b3b3b3;
-                    &:nth-child(3) {
-                        background-color: #282828;
-                        color: #fff;
-                    }
-                    &:hover {
-                        color: #fff;
-                    }
-                    .fas {
-                        font-size: 20px;
-                    }
-                    .sidebar__item-title {
-                        margin-left: 20px;
-                        font-size: 14px;
-                        font-weight: normal;
+                .sidebar__link {
+                    text-decoration: none;
+                    .sidebar__item {
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+                        margin: 0 8px;
+                        padding: 5px;
+                        padding-left: 20px;
+                        cursor: pointer;
+                        box-sizing: border-box;
+                        color: #b3b3b3;
+                        &:nth-child(3) {
+                            background-color: #282828;
+                            color: #fff;
+                        }
+                        &:hover {
+                            color: #fff;
+                        }
+                        .fas {
+                            font-size: 20px;
+                        }
+                        .sidebar__item-title {
+                            margin-left: 20px;
+                            font-size: 14px;
+                            font-weight: normal;
+                        }
                     }
                 }
             }
