@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import SpotifyWebApi from "spotify-web-api-node"
 
-export function useSearchHelper (search, setSearchResults, categories, setCategories, accessToken) {
+export function useSearchHelper (search, setSearchResults, categories, setCategories) {
+    const accessToken = JSON.parse(localStorage.getItem('userLogged')).accessToken
 
     const history = useHistory()
     const spotifyApi = new SpotifyWebApi({

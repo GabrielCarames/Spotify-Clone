@@ -2,12 +2,11 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import useSearchHelper from "../hooks/useSearchHelper"
 
-const Search = ({accessToken}) => {
+const Search = () => {
     const [search, setSearch] = useState()
-    console.log("acces", accessToken)
     const [searchResults, setSearchResults] = useState([])
     const [categories, setCategories] = useState()
-    const { searchInput } = useSearchHelper(search, setSearchResults, categories, setCategories, accessToken)
+    const { searchInput } = useSearchHelper(search, setSearchResults, categories, setCategories)
     console.log("aspdkaspdasd", categories)
 
     return (

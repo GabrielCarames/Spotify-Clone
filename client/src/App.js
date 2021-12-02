@@ -30,13 +30,13 @@ function App() {
                     <div className="app-container">
                         <Main accessToken={userLogged.accessToken} > </Main>
                         <Switch>
-                            <Route exact path="/"><YourLibrary accessToken={userLogged.accessToken} /></Route>
-                            <Route exact path="/search"><Search accessToken={userLogged.accessToken} /> </Route>
-                            <Route exact path="/search/category/:categoryName"><Category accessToken={userLogged.accessToken } /> </Route>
-                            <Route exact path="/search/:search"><Results accessToken={userLogged.accessToken } /> </Route>
-                            <Route exact path="/yourlibrary"><YourLibrary accessToken={userLogged.accessToken } /> </Route>
-                            <Route exact path="/playlist/:playlistId"><Songs accessToken={userLogged.accessToken } /></Route>
-                            <Route path="*"><YourLibrary accessToken={userLogged.accessToken } /></Route>
+                            <Route exact path="/"><YourLibrary/></Route>
+                            <Route exact path="/search"><Search/> </Route>
+                            <Route exact path="/search/category/:categoryName"><Category /> </Route>
+                            <Route exact path="/search/:search"><Results /> </Route>
+                            <Route exact path="/yourlibrary"><YourLibrary /> </Route>
+                            <Route exact path="/playlist/:playlistId"><Songs /></Route>
+                            <Route path="*"><YourLibrary /></Route>
                         </Switch>
                     </div>
                 </Router>

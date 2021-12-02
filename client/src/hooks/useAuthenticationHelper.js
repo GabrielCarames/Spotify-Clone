@@ -28,13 +28,14 @@ export function useAuthenticationHelper (code) {
         console.log("soyelmalo", userLogged)
         if (!userLogged) return
         const interval = setInterval(() => {
-            console.log("hoalsd'asd'¿", userLogged.refreshToken)
+            console.log("hoalsd'asd'¿", userLogged)
             const refreshToken = userLogged.refreshToken
             axios.post("http://localhost:3001/refresh", {refreshToken}).then(res => {
                 console.log("me refresque el token", res.data)
                 const userLogged = JSON.parse(localStorage.getItem('userLogged'))
                 const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn}
                 localStorage.setItem('userLogged', JSON.stringify(userLogginData))
+                console.log("hoal2", JSON.parse(localStorage.getItem('userLogged')))
                 // setAccessToken(userLogginData.accessToken)
                 // setExpiresIn(expiresIn)
             }).catch(() => {window.location = "/"})

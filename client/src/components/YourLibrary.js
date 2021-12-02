@@ -4,9 +4,8 @@ import useYourLibraryHelper from "../hooks/useYourLibraryHelper"
 import LikedSongs from "./LikedSongs"
 import Playlists from "./Playlists"
 
-const YourLibrary = ({accessToken}) => {
-    console.log("accestokentaojdadas", accessToken)
-    const { playlists, likedSongs } = useYourLibraryHelper(accessToken)
+const YourLibrary = () => {
+    const { playlists, likedSongs } = useYourLibraryHelper()
     console.log("playlists", playlists)
     const dispatch = useDispatch()
 

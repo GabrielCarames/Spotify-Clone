@@ -3,9 +3,9 @@ import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import useCategoryHelper from "../hooks/useCategoryHelper"
 
-const Category = ({accessToken}) => {
+const Category = () => {
     const [playlists, setPlaylists] = useState()
-    const {} = useCategoryHelper(accessToken, setPlaylists)
+    const {} = useCategoryHelper(setPlaylists)
     const { categoryName } = useParams()
 
     return (

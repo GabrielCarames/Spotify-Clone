@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import useSongsHelper from "../hooks/useSongsHelper"
 
-const Songs = ({accessToken}) => {
+const Songs = () => {
     const dispatch = useDispatch()
-    const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(accessToken, dispatch)
+    const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(dispatch)
     const song = useSelector(state => state.songReducer)
     console.log("brotha", playlist)
     return (

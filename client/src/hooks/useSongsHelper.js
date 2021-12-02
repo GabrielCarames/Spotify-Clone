@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SpotifyWebApi from "spotify-web-api-node"
 
-export function useSongsHelper (accessToken, dispatch) {
-
+export function useSongsHelper (dispatch) {
+    const accessToken = JSON.parse(localStorage.getItem('userLogged')).accessToken
     const [playlist, setPlaylist] = useState()
     const { playlistId } = useParams()
     const likedSongs = useSelector(state => state.likedSongsReducer)

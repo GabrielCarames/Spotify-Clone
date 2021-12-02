@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import SpotifyWebApi from "spotify-web-api-node"
 
-export default function useResultsHelper(accessToken) {
+export default function useResultsHelper() {
     const [results, setResults] = useState()
     const [topResult, setTopResult] = useState()
     const [sections, setSections] = useState([])
     const { search } = useParams()
+    const accessToken = JSON.parse(localStorage.getItem('userLogged')).accessToken
 
     useEffect(() => {
         const spotifyApi = new SpotifyWebApi({

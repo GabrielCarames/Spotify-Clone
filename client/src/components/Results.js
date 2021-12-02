@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 import useResultsHelper from "../hooks/useResultsHelper"
 
-const Results = ({accessToken}) => {
-    const { results, millisToMinutesAndSeconds, topResult, sections } = useResultsHelper(accessToken)
+const Results = () => {
+    const { results, millisToMinutesAndSeconds, topResult, sections } = useResultsHelper()
     console.log("search", results)
 
     return (
