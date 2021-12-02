@@ -8,15 +8,12 @@ export function useSongsHelper (dispatch) {
     const [playlist, setPlaylist] = useState()
     const { playlistId } = useParams()
     const likedSongs = useSelector(state => state.likedSongsReducer)
-    
     const spotifyApi = new SpotifyWebApi({clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3"})
 
     useEffect(() => {
-
         if(playlistId !== "likedsongs") {
             spotifyApi.setAccessToken(accessToken)
             spotifyApi.getPlaylist(playlistId).then(function(data) {
-                console.log('Some information about this playlist', data.body);
                 setPlaylist(data.body)
             }, function(err) {
                 console.log('Something went wrong!', err);

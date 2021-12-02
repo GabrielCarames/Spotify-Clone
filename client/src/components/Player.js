@@ -5,8 +5,6 @@ const Player = ({ accessToken }) => {
     const dispatch = useDispatch()
     const song = useSelector(state => state.songReducer)
 
-    console.log("songState", song)
-
     if (!accessToken) return null
 
     return (

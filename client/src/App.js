@@ -1,26 +1,21 @@
 import { BrowserRouter as Router, Route, Switch   } from "react-router-dom";
-import { useState } from "react";
-import Search from "./components/Search";
-import Player from "./components/Player";
-import Login from "./components/Login";
+import { connect } from "react-redux";
 import useAuthenticationHelper from "./hooks/useAuthenticationHelper";
 import YourLibrary from "./components/YourLibrary";
-import Songs from "./components/Songs";
-import { connect, useSelector } from "react-redux";
-import Main from "./components/Main";
 import Category from "./components/Category";
 import Results from "./components/Results";
+import Search from "./components/Search";
+import Songs from "./components/Songs";
+import Main from "./components/Main";
 
 const mapStateToProps = (state) => {
-    return {
-      results: state
-    }
+    return { results: state }
 }
 
 function App() {
     const code = new URLSearchParams(window.location.search).get("code")
     console.log("code", code)
-    const { } = useAuthenticationHelper(code)
+    useAuthenticationHelper(code)
     const userLogged = JSON.parse(localStorage.getItem('userLogged'))
     console.log("userlogged", userLogged)
     return (

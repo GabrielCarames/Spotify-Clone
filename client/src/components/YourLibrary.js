@@ -6,7 +6,6 @@ import Playlists from "./Playlists"
 
 const YourLibrary = () => {
     const { playlists, likedSongs } = useYourLibraryHelper()
-    console.log("playlists", playlists)
     const dispatch = useDispatch()
 
     return (

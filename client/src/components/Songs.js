@@ -5,7 +5,7 @@ const Songs = () => {
     const dispatch = useDispatch()
     const { playlist, millisToMinutesAndSeconds, defineClassName, playSong, stopSong } = useSongsHelper(dispatch)
     const song = useSelector(state => state.songReducer)
-    console.log("brotha", playlist)
+
     return (
         <div className="songs-container">
             <header className="songs-header">

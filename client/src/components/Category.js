@@ -5,7 +5,7 @@ import useCategoryHelper from "../hooks/useCategoryHelper"
 
 const Category = () => {
     const [playlists, setPlaylists] = useState()
-    const {} = useCategoryHelper(setPlaylists)
+    useCategoryHelper(setPlaylists)
     const { categoryName } = useParams()
 
     return (

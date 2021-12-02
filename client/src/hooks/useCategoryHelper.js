@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import SpotifyWebApi from "spotify-web-api-node";
 
 export function useCategoryHelper(setPlaylists) {
-    const { categoryName } = useParams()
     const accessToken = JSON.parse(localStorage.getItem('userLogged')).accessToken
-
+    const { categoryName } = useParams()
+    
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
     })
@@ -17,24 +17,10 @@ export function useCategoryHelper(setPlaylists) {
             country: 'AR',
             limit : 8,
             offset : 0
-          })
-        .then(function(data) {
-          console.log("CATEGOR", data.body);
-          setPlaylists(data.body.playlists)
-        }, function(err) {
+        }).then(function(data) {setPlaylists(data.body.playlists)}, function(err) {
           console.log("Something went wrong!", err);
         });
-
-        // spotifyApi.searchPlaylists(categoryName) //esto es para el buscador cuando buscar una categoria, mas no para esto
-        // .then(function(data) {
-        //     console.log('Found playlists are', data.body);
-        // }, function(err) {
-        //     console.log('Something went wrong!', err);
-        // });
-
     }, [accessToken])
-
-    return {}
 }
 
 export default useCategoryHelper

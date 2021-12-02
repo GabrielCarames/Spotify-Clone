@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
+import likedSongsReducer from './store/likedSongsReducer';
+import songReducer from './store/songReducer';
 import App from './App';
 import './scss/index.css';
-import songReducer from './store/songReducer';
-import likedSongsReducer from './store/likedSongsReducer';
 
-import { combineReducers, createStore } from 'redux';
-import { Provider } from 'react-redux';
+
 const app = combineReducers({
     songReducer,
     likedSongsReducer

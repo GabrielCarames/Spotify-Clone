@@ -1,4 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/f3c42d5e4c2d28b84d05c2b2f672b3ca?family=Gotham+ExtraLight);
+
 @mixin song-button {
     background-color: #1db954;
     border: none;
@@ -16,7 +17,6 @@
     .songs-header {
         height: 340px;
         background-color: rgb(152, 176, 176);
-        // background: linear-gradient(transparent 0,rgba(0,0,0,.5) 100%),var(--background-noise);
         box-sizing: border-box;
         .songs-context {
             display: flex;
@@ -150,18 +150,6 @@
                     font-size: 18px;
                     font-weight: bold;
                 }
-                .navbar__title {
-        
-                }
-                .navbar__album {
-        
-                }
-                .navbar__date-added {
-        
-                }
-                .fa-clock {
-                    
-                }
             }
         }
         .songs-body {
@@ -277,12 +265,6 @@
                         .list__album {
                             text-decoration: none;
                             color: rgb(179, 179, 179);
-                        }
-                        .list__date-added {
-    
-                        }
-                        .list__duration {
-    
                         }
                     }
                     .list__item.active {
