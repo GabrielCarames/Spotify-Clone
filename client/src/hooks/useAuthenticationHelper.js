@@ -6,7 +6,7 @@ export function useAuthenticationHelper (code) {
 
     useEffect(() => {
         if (code) {
-            axios.post("http://localhost:3001/login", {code}).then(res => {
+            axios.post("/login", {code}).then(res => {
               const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn}
               localStorage.setItem('userLogged', JSON.stringify(userLogginData))
               window.history.pushState({}, null, "/")
@@ -21,7 +21,7 @@ export function useAuthenticationHelper (code) {
         if (!userLogged) return
         const interval = setInterval(() => {
             const refreshToken = userLogged.refreshToken
-            axios.post("http://localhost:3001/refresh", {refreshToken}).then(res => {
+            axios.post("/refresh", {refreshToken}).then(res => {
                 const userLogged = JSON.parse(localStorage.getItem('userLogged'))
                 const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn}
                 localStorage.setItem('userLogged', JSON.stringify(userLogginData))
