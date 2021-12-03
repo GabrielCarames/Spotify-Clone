@@ -5,7 +5,7 @@ export function useYourLibraryHelper () {
     const [likedSongs, setLikedSongs] = useState()
     const [playlists, setPlaylists] = useState()
     const accessToken = JSON.parse(localStorage.getItem('userLogged')).accessToken
-    
+
     const spotifyApi = new SpotifyWebApi({
         clientId: "d2a7d543ee8141ee9e85e54c63fdd6e3",
     })
@@ -22,14 +22,12 @@ export function useYourLibraryHelper () {
         });
 
         spotifyApi.getUserPlaylists(authUserName).then(function(data) {
-            console.log('Retrieved playlists', data.body);
             setPlaylists(data.body.items)
         }, function(err) {
             console.log('Something went wrong!', err);
         });
 
         spotifyApi.getMySavedTracks({limit : 10,offset: 2}).then(function(data) {
-            console.log("likedSongs", data);
             setLikedSongs(data.body)
         }, function(err) {
             console.log('Something went wrong!', err);
