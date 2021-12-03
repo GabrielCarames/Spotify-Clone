@@ -1,19 +1,21 @@
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import useResultsHelper from "../hooks/useResultsHelper"
 
 const Results = () => {
     const { results, millisToMinutesAndSeconds, topResult, sections } = useResultsHelper()
-
+    const dispatch = useDispatch()
+    
     return (
         <div className="results-container">
-            <section className="results-top-result top-result">
+            <section className="results-top-result top-result" onClick={() => {dispatch({type: '@setSong', payload: topResult.uri})}}>
                 <span className="top-result__title">Top result</span>
                 <div className="top-result-song">
                     <img className="top-result-image" src={topResult && topResult.album.images[0].url} alt="" />
                     <div className="top-result-info">
                         <p className="top-result__title">{topResult && topResult.name}</p>
                         <p className="top-result__data"><span className="top-result__author">{topResult && topResult.artists[0].name}</span>SONG</p>
-                        <button className="top-result__button"><svg height="24" role="img" width="24" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
+                        <button className="top-result__button" onClick={() => {dispatch({type: '@setSong', payload: topResult.uri})}}><svg height="24" role="img" width="24" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg></button>
                     </div>
                 </div>
             </section>
@@ -23,7 +25,7 @@ const Results = () => {
                     {
                         results && results.items.map((song, id) => {
                             return (
-                                <li className="list__item" key={id}>
+                                <li className="list__item" key={id} onClick={() => {dispatch({type: '@setSong', payload: song.uri})}}>
                                     <div className="list__song-data">
                                         <div className="list-image-container">
                                             <img className="list__image" src={song.album.images[0].url} alt="" />
@@ -34,7 +36,7 @@ const Results = () => {
                                             <div className="list__author-container">
                                                 {
                                                     song.artists.map((artist, id) => {
-                                                        return <a className="list__song-author">{artist.name}</a>
+                                                        return <span className="list__song-author" key={id}>{artist.name}</span>
                                                     })
                                                 }
                                             </div>
@@ -51,7 +53,7 @@ const Results = () => {
                 {
                     sections.length >= 2 && sections.map((section, id) => {
                         return (
-                            <section className="results-type">
+                            <section className="results-type" key={id}>
                                 <span className="type-container__title">{Object.getOwnPropertyNames(section)}</span>
                                 <ul className="type-container-list list">
                                     {

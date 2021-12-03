@@ -21,8 +21,8 @@ const Search = () => {
                     {
                         categories && categories.items && categories.items.map((category, id) => {
                             return (
-                                <Link className="list__link" to={`/search/category/${category.id}`}>
-                                    <li className="list__item" key={id} id={category.id} style={{backgroundColor: "#"+((20<<20)*Math.random()|0).toString(16)}}>
+                                <Link className="list__link" to={`/search/category/${category.id}`} key={id}>
+                                    <li className="list__item" id={category.id} style={{backgroundColor: "#"+((20<<20)*Math.random()|0).toString(16)}}>
                                         <p className="list__category-title">{category.name}</p>
                                         <img className="list__category-image" src={category.icons[0].url} alt="category" />
                                     </li>

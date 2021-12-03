@@ -12,7 +12,6 @@ const Player = ({ accessToken }) => {
             token={accessToken}
             showSaveIcon
             callback={state => {
-                console.log("Player callback", state)
                 if (state.isPlaying) dispatch({type: '@songState', payload: true})
                 if (!state.isPlaying) dispatch({type: '@songState', payload: false})
             }}

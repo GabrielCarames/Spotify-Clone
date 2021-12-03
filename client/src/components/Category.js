@@ -1,12 +1,12 @@
-import { useState } from "react"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 import useCategoryHelper from "../hooks/useCategoryHelper"
 
 const Category = () => {
     const [playlists, setPlaylists] = useState()
-    useCategoryHelper(setPlaylists)
     const { categoryName } = useParams()
+    useCategoryHelper(setPlaylists)
 
     return (
         <div className="category-container">
@@ -20,7 +20,7 @@ const Category = () => {
                         {
                             playlists && playlists.items.map((playlist, id) => {
                                 return (
-                                    <li className="list__item">
+                                    <li className="list__item" key={id}>
                                         <Link className="list__link" to={`/playlist/${playlist.id}`}>
                                             <div className="list-image-container">
                                                 <img className="list__image" src={playlist.images[0].url} alt="playlist" />

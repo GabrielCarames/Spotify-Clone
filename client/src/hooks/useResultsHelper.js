@@ -25,7 +25,7 @@ export default function useResultsHelper() {
         }, function(err) {
             console.error('Something went wrong!', err);
         });
-        
+
         spotifyApi.searchPlaylists(search).then(function(data) {
             const restringedPlaylists = data.body.playlists.items.slice(0, 8)
             setSections(sections => sections.concat({playlists: restringedPlaylists}))
@@ -44,7 +44,6 @@ export default function useResultsHelper() {
     useEffect(() => {
         if(results) {
             const topPopularity = results.items.sort((a,b)=> a.popularity-b.popularity)[results.items.length-1]
-            console.log("veragrande", topPopularity)
             setTopResult(topPopularity)
         }
     }, [results])
