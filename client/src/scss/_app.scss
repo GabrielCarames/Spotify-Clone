@@ -9,7 +9,7 @@
     background-image: linear-gradient(rgba(0,0,0,.6) 0,#121212 100%), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=");;
     height: 100vh;
     color: white;
-    font-family: 'Gotham C1 Head';
+    @font-face {font-family: "Gotham C1 Head"; src: url("https://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.eot"); src: url("https://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.woff") format("woff"), url("http://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/a3b9bd61310fe6777980b7b7ce42f937.svg#Gotham C1 Head") format("svg"); }
     .sidebar-container {
         grid-area: sidebar;
         background-color: #000;
