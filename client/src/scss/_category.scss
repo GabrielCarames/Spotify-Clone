@@ -28,33 +28,33 @@
                 list-style: none;
                 padding: 0;
                 margin-top: -5px;
-                .list__item {
-                    width: 180px;
-                    height: min-content;
-                    margin-left: 20px;
-                    background-color: #181818;
-                    padding: 16px;
-                    padding-bottom: 0;
-                    box-sizing: border-box;
-                    cursor: pointer;
-                    transition: background-color .3s ease;
-                    color: white;
-                    height: 100%;
-                    &:nth-child(1) {
-                        margin-left: 0;
-                    }
-                    &:hover {
-                        background-color: #282828;
-                        .list__link {
-                            .list-image-container {
-                                .list__play-button {
-                                    display: inline-block;
+                .list__link {
+                    text-decoration: none;
+                    .list__item {
+                        width: 180px;
+                        height: min-content;
+                        margin-left: 20px;
+                        background-color: #181818;
+                        padding: 16px;
+                        padding-bottom: 0;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        transition: background-color .3s ease;
+                        color: white;
+                        height: 100%;
+                        &:nth-child(1) {
+                            margin-left: 0;
+                        }
+                        &:hover {
+                            background-color: #282828;
+                            .list__link {
+                                .list-image-container {
+                                    .list__play-button {
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
-                    }
-                    .list__link {
-                        text-decoration: none;
                         .list-image-container {
                             position: relative;
                             .list__image {
