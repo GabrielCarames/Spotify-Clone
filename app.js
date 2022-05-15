@@ -6,7 +6,7 @@ const SpotifyWebApi = require("spotify-web-api-node")
 
 app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 app.post("/login", (req, res) => {
     const code = req.body.code

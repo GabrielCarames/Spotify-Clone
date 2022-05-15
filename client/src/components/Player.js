@@ -4,7 +4,7 @@ import SpotifyPlayer from "react-spotify-web-playback"
 const Player = ({ accessToken }) => {
     const dispatch = useDispatch()
     const song = useSelector(state => state.songReducer)
-
+    
     if (!accessToken) return null
 
     return (
