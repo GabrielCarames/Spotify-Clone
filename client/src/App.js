@@ -33,7 +33,7 @@ function App() {
                         </Switch>
                     </div>
                 </Router>
-        :   window.location.href = "https://accounts.spotify.com/authorize?client_id=d2a7d543ee8141ee9e85e54c63fdd6e3&response_type=code&redirect_uri=https://spotify-clone-xi-eight.vercel.app/&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+        :   window.location.href = "https://accounts.spotify.com/authorize?client_id=d2a7d543ee8141ee9e85e54c63fdd6e3&response_type=code&redirect_uri=https://spotify-clone-gabrielcarames.vercel.app/&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
     )
 }
 
