@@ -7,7 +7,7 @@
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node app.js && npm run heroku-postbuild",
+    "start": "npm run heroku-postbuild && node app.js",
     "dev": "nodemon app.js"
   },
   "repository": {
