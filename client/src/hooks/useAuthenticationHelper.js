@@ -8,12 +8,11 @@ export function useAuthenticationHelper(code) {
     if (code) {
       axios.post("/login", { code }).then(res => {
         const userLogginData = { "accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn }
-        console.log("cosa", userLogginData)
         localStorage.setItem('userLogged', JSON.stringify(userLogginData))
-        // window.history.pushState({}, null, "/")
+        window.history.pushState({}, null, "/")
       }).catch((err) => {
         console.log(err)
-        // window.location = "/"
+        window.location = "/"
       })
     } else return
   }, [code])
@@ -26,7 +25,7 @@ export function useAuthenticationHelper(code) {
         const userLogged = JSON.parse(localStorage.getItem('userLogged'))
         const userLogginData = { "accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn }
         localStorage.setItem('userLogged', JSON.stringify(userLogginData))
-      }).catch((e) => { console.log("error", e)/*window.location = "/"*/ })
+      }).catch(() => { window.location = "/" })
     }, (userLogged.expiresIn - 60) * 1000)
     return () => clearInterval(interval)
   }, [userLogged && userLogged.refreshToken, userLogged && userLogged.expiresIn])
