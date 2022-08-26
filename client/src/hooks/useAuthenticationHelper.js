@@ -10,10 +10,10 @@ export function useAuthenticationHelper(code) {
         const userLogginData = { "accessToken": res.data.accessToken, "refreshToken": res.data.refreshToken, "expiresIn": res.data.expiresIn }
         console.log("cosa", userLogginData)
         localStorage.setItem('userLogged', JSON.stringify(userLogginData))
-        window.history.pushState({}, null, "/")
+        // window.history.pushState({}, null, "/")
       }).catch((err) => {
         console.log(err)
-        window.location = "/"
+        // window.location = "/"
       })
     } else return
   }, [code])
