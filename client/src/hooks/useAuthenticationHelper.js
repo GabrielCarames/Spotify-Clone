@@ -26,7 +26,7 @@ export function useAuthenticationHelper(code) {
         const userLogged = JSON.parse(localStorage.getItem('userLogged'))
         const userLogginData = { "accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn }
         localStorage.setItem('userLogged', JSON.stringify(userLogginData))
-      }).catch(() => { window.location = "/" })
+      }).catch((e) => { console.log("error", e)/*window.location = "/"*/ })
     }, (userLogged.expiresIn - 60) * 1000)
     return () => clearInterval(interval)
   }, [userLogged && userLogged.refreshToken, userLogged && userLogged.expiresIn])
