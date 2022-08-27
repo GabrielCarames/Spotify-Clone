@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "install-client": "cd client & npm install",
-    "client": "npm run install-client && npm run build",
+    "client": "npm run install-client && cd client & npm run build",
     "start": "npm run client && node app.js",
     "dev": "nodemon app.js"
   },
