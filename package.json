@@ -4,7 +4,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "app.js",
   "scripts": {
-    "client": "cd client & npm install && npm run build",
+    "install-client": "cd client & npm install",
+    "client": "npm run install-client && npm run build",
     "start": "npm run client && node app.js",
     "dev": "nodemon app.js"
   },
