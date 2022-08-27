@@ -45,7 +45,7 @@ app.post("/refresh", (req, res) => {
     res.sendStatus(400)
   })
 })
-console.log("server iniciado")
+console.log("server iniciado", process.env.PORT, process.env.NODE_ENV)
 app.listen(process.env.PORT || 3001)
 
 if (process.env.NODE_ENV === 'production') {
