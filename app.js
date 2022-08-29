@@ -4,6 +4,8 @@ const app = express()
 const cors = require('cors')
 const SpotifyWebApi = require("spotify-web-api-node")
 
+app.set('port', process.env.PORT || 3001)
+
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -45,9 +47,12 @@ app.post("/refresh", (req, res) => {
     res.sendStatus(400)
   })
 })
-console.log("server iniciado", process.env.PORT, process.env.NODE_ENV)
-app.listen(process.env.PORT || 3001)
+
+app.listen(app.get('port'))
+console.log("server iniciado", process.env.PORT, process.env.NODE_ENV, typeof process.env.NODE_ENV, app.get('port'))
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 }
+
+module.exports = app
