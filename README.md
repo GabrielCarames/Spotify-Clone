@@ -34,7 +34,7 @@ Un simple clon de Spotify con sus características más importantes. Realizado a
 <br />
 
 ## Reproductor de Spotify
-* Cuenta con un reproductor de canciones vinculado y sincronizado directamente con Spotify. Sin importar el dispositivo en donde se seleccione una canción, el reproductor se sincronizará automáticamente con la misma.
+* Cuenta con un reproductor de canciones vinculado y sincronizado directamente con Spotify. Sin importar el dispositivo en donde se seleccione una canción, el reproductor se sincronizará automáticamente con la misma. (Se necesita una cuenta Premium para usar el reproductor)
 
 ## Playlists y canciones vinculadas con Spotify
 * Si una cuenta oficial de Spotify tiene canciones o playlists(públicas o privadas) guardadas, se podrán visualizar y reproducir a voluntad.
