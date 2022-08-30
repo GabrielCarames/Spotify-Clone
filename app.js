@@ -49,7 +49,7 @@ app.post("/refresh", (req, res) => {
 })
 
 app.listen(app.get('port'))
-console.log("server iniciado", process.env.PORT, process.env.NODE_ENV, typeof process.env.NODE_ENV, app.get('port'))
+console.log("server iniciado", process.env.PORT, process.env.NODE_ENV, app.get('port'))
 
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('client/build'))
