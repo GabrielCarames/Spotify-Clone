@@ -1,6 +1,10 @@
 # Spotify-Clone
 Un simple clon de Spotify con sus características más importantes. Realizado a través de [Spotify Web API Node](https://www.npmjs.com/package/spotify-web-api-node),  [react-spotify-web-playback](https://www.npmjs.com/package/react-spotify-web-playback) y [Spotify for developers](https://developer.spotify.com/).
 
+## Cuenta de prueba (no premium)
+    Email: demoa4178@gmail.com
+    Contraseña: demoaccount123
+
 <br />
 
 <div align="center">
